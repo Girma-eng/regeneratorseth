@@ -1,0 +1,1853 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L²MFarm - Farm Management Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --primary-light: #4caf50;
+            --secondary: #ff9800;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+            --light-gray: #e0e0e0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+
+        .logo-img {
+            width: 220px;
+            height: auto;
+        }
+
+        .logo h1 {
+            font-size: 28px;
+            margin: 0;
+            color: orange;
+        }
+
+        .logo h1 span {
+            color: green;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Toggle Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            text-align: left;
+            color: white;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* Main title positioned on the left */
+        .hero-title {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            color: white;
+            z-index: 3;
+            text-align: left;
+            max-width: 60%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+             margin-bottom: 30px; /* Increase this value as needed */
+          
+        }
+
+        .hero-title h1 {
+            font-size: 2.6rem;
+            margin-bottom: 15px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        /* Subtitle positioned on the left with indentation */
+        .hero-subtitle {
+            position: absolute;
+            top: 55%;
+            left: 12%;
+            color: white;
+            text-align: left;
+            max-width: 45%;
+            font-size: 1.1rem;
+            z-index: 2;
+            line-height: 1.4;
+        }
+
+        /* Buttons positioned below subtitle */
+        .hero-buttons {
+            position: absolute;
+            top: 75%;
+            left: 12%;
+            z-index: 3;
+            display: flex;
+            gap: 15px;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        .slider-arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            z-index: 10;
+        }
+        
+        .slider-arrow {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* Dashboard Section */
+        .dashboard-section {
+            position: relative;
+            margin-top: -40vh;
+            margin-left: 160vh;
+            z-index: 10;
+        }
+
+        .dashboard-container {
+            max-width: 300px;
+            height: 500px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 0px;
+            text-align: center;
+        }
+      
+        .dashboard-container_2 {
+            max-width: 200px;
+            height: 400px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 0px;
+            text-align: center;
+        }
+     
+       .dashboard-container_3 {
+            max-width: 200px;
+            height: 400px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 0px;
+            text-align: center;
+        }
+
+        .dashboard-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        /* Welcome Message */
+        .welcome-message {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .welcome-container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 10px 5% 10px;
+        }
+
+        .welcome-message h2 {
+            color: #2d6a4f;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+        }
+
+        .welcome-message p {
+            color: #333;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            max-width: 100%;
+        }
+        
+        .decorative-line {
+            width: 80px;
+            height: 3px;
+            background-color: #d90429;
+            margin: 0 auto 30px;
+        }
+        
+        .highlight-text {
+            color: #2d6a4f !important;
+            font-weight: 600;
+            font-size: 1.2rem !important;
+        }
+        
+        /* Features Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            background: var(--primary-light);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            font-size: 55px;
+        }
+        
+        /* Innovative Solutions Section */
+        .innovative-solutions {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 12px;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border-top: 25px solid green;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .solution-icon {
+            font-size: 2.0rem;
+            color: greenyellow;
+            margin-bottom: 1px;
+            text-align: center;
+        }
+        
+        .solution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .solution-card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .solution-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .stat-badge {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: green;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-badge i {
+            font-size: 0.7rem;
+        }
+        
+        /* App Screens Slider Section */
+        .app-screens-section {
+            padding: 40px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+        }
+        
+        .app-slider-container-2 {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .app-slider-content {
+            flex: 1;
+            padding: 20px;
+        }
+        
+        .app-slider-visual {
+            flex: 1;
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .app-slide-2 {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            flex-direction: column;
+        }
+        
+        .app-slide-2.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .app-slide-2 h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .app-slide-2 p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+        
+        .feature-list {
+            margin: 25px 0;
+            list-style: none;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        
+        .feature-list i {
+            color: var(--primary);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .app-phone-mockup {
+            position: relative;
+            width: 220px;
+            height: 440px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+        }
+        
+        .app-phone-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 5px;
+            background: #2a2a2a;
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+        }
+        
+        .app-screen {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 22px;
+        }
+        
+        .app-phone-mockup_1 {
+            position: relative;
+            width: 450px;
+            height: 300px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+        }
+         
+        .app-screen_1 {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 20px;
+        }
+        
+        .app-phone-mockup_2 {
+            position: relative;
+            width: 500px;
+            height: 400px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+            transform: perspective(500px) rotateY(-20deg) rotateX(2deg);
+            transition: transform 0.3s ease;
+        }
+          .app-phone-mockup_22 {
+            position: relative;
+            width: 130px;
+            height: 220px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+            transform: perspective(500px) rotateY(-30deg) rotateX(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .app-phone-mockup_2:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(1deg);
+        }
+        
+        .app-phone-mockup_2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 0px;
+            background: #2a2a2a;
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+        }
+        
+        .app-screen_2 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+
+        .app-phone-mockup_3 {
+            position: relative;
+            width: 170px;
+            height: 350px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+        }
+        
+        .app-phone-mockup_3::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 0px; 
+            background: #2a2a2a;
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+        }
+        
+        .app-screen_3 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .app-phone-mockup_4 {
+            position: relative;
+            width: 140px;
+            height: 280px;
+            background: #1a1a1a;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            overflow: hidden;
+            border: 8px solid #2a2a2a;
+        }
+        
+        .app-phone-mockup_4::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 0px; 
+            background: #2a2a2a;
+            border-radius: 0 0 10px 10px;
+            z-index: 10;
+        }
+        
+        .app-screen_4 {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        
+        .app-slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 10px;
+        }
+        
+        .app-slider-dot-2 {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .app-slider-dot-2.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+        
+        .app-slider-arrows-2 {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .app-slider-arrow-2 {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            color: var(--primary);
+        }
+        
+        .app-slider-arrow-2:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 80px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+
+
+
+        /* Keep your existing dashboard section styles - they work fine */
+.dashboard-section {
+    position: relative;
+    margin-top: -40vh;
+    margin-left: 160vh;
+    z-index: 10;
+}
+
+.dashboard-section_1 {
+    position: relative;
+    margin-top: -30vh;
+    margin-left: 110vh;
+    z-index: 10;
+}
+.dashboard-section_2 {
+    position: relative;
+    margin-top: -60vh;
+    margin-left: 170vh;
+    z-index: 10;
+}
+
+.dashboard-section_3 {
+    position: relative;
+    margin-top: -30vh;
+    margin-left: 155vh;
+    z-index: 10;
+}
+
+        
+        /* ========== MOBILE RESPONSIVE STYLES ========== */
+        
+        /* Mobile Navigation */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            nav {
+                width: 100%;
+                order: 3;
+                display: none;
+                margin-top: 15px;
+            }
+            
+            nav.active {
+                display: block;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+            
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                border-bottom: 1px solid var(--light-gray);
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .auth-buttons {
+                margin-left: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: row;
+            }
+            
+            .auth-buttons {
+                display: none;
+            }
+            
+            .auth-buttons.mobile {
+                display: flex;
+                width: 100%;
+                justify-content: center;
+                margin-top: 15px;
+                order: 4;
+            }
+        }
+        
+        /* Mobile Hero Slider */
+        @media (max-width: 1200px) {
+            .hero-title h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem;
+                max-width: 50%;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-slider {
+                height: 500px;
+            }
+            
+            .hero-title {
+                left: 5%;
+                max-width: 90%;
+            }
+            
+            .hero-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                left: 7%;
+                max-width: 85%;
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                left: 7%;
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .slider-arrows {
+                padding: 0 10px;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-slider {
+                height: 400px;
+            }
+            
+            .hero-title h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .hero-buttons .btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Mobile Dashboard Sections */
+        @media (max-width: 1200px) {
+            .dashboard-section,
+            .dashboard-section_1,
+            .dashboard-section_2,
+            .dashboard-section_3 {
+                margin: 0;
+                position: static;
+                display: none; /* Hide on mobile for now */
+            }
+        }
+        
+        /* Mobile Welcome Message */
+        @media (max-width: 768px) {
+            .welcome-message {
+                padding: 40px 0;
+            }
+            
+            .welcome-message h2 {
+                font-size: 1.8rem;
+            }
+            
+            .welcome-message p {
+                font-size: 1rem;
+            }
+            
+            .highlight-text {
+                font-size: 1rem !important;
+            }
+        }
+        
+        /* Mobile Features Section */
+        @media (max-width: 768px) {
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .feature-card {
+                padding: 15px;
+            }
+            
+            .feature-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 40px;
+            }
+        }
+        
+        /* Mobile Innovative Solutions */
+        @media (max-width: 768px) {
+            .innovative-solutions {
+                padding: 50px 20px;
+                background-attachment: scroll;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin-top: 30px;
+            }
+            
+            .solution-card {
+                padding: 15px;
+            }
+            
+            .solution-card h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Mobile App Screens Slider */
+        @media (max-width: 1200px) {
+            .app-slider-container-2 {
+                flex-direction: column;
+                gap: 30px;
+            }
+            
+            .app-slider-visual {
+                order: -1;
+                height: auto;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .app-phone-mockup,
+            .app-phone-mockup_2 {
+                width: 180px;
+                height: 350px;
+                margin: 10px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .app-screens-section {
+                padding: 60px 0;
+            }
+            
+            .app-slide-2 h2 {
+                font-size: 1.8rem;
+            }
+            
+            .app-slide-2 p {
+                font-size: 1rem;
+            }
+            
+            .app-slider-visual {
+                flex-direction: column;
+                height: auto;
+            }
+            
+            .app-phone-mockup,
+            .app-phone-mockup_2 {
+                width: 200px;
+                height: 400px;
+                margin: 10px 0;
+            }
+            
+            .app-slider-arrows-2 {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .app-slider-content {
+                padding: 10px;
+            }
+            
+            .app-slide-2 h2 {
+                font-size: 1.5rem;
+            }
+            
+            .feature-list li {
+                font-size: 0.9rem;
+            }
+            
+            .app-phone-mockup,
+            .app-phone-mockup_2 {
+                width: 160px;
+                height: 320px;
+            }
+        }
+        
+        /* Mobile CTA Section */
+        @media (max-width: 768px) {
+            .cta {
+                padding: 60px 0;
+            }
+            
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Mobile Footer */
+        @media (max-width: 768px) {
+            footer {
+                padding: 40px 0 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        /* Utility Classes for Mobile */
+        .mobile-only {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-only {
+                display: block;
+            }
+            
+            .desktop-only {
+                display: none;
+            }
+        }
+
+         /* NEW STYLES ADDED FOR PLATFORM INTRO SECTION */
+        .platform-intro-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%);
+        }
+        
+        .platform-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .platform-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .platform-card.l2mfarm {
+            border-top-color: #4CAF50;
+        }
+        
+        .platform-card.l2mtracking {
+            border-top-color: #2196F3;
+        }
+        
+        .platform-card.l2mlink {
+            border-top-color: #FF9800;
+        }
+        
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .platform-card.l2mfarm .platform-icon {
+            color: #4CAF50;
+        }
+        
+        .platform-card.l2mtracking .platform-icon {
+            color: #2196F3;
+        }
+        
+        .platform-card.l2mlink .platform-icon {
+            color: #FF9800;
+        }
+        
+        .coming-soon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .platform-features {
+            margin-top: 20px;
+            list-style: none;
+        }
+        
+        .platform-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .platform-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .platform-features i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .suite-highlight {
+            background: linear-gradient(135deg, #2e7d32 0%, #4CAF50 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        
+        .suite-highlight h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .suite-highlight p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .platform-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .suite-highlight {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+            
+            .suite-highlight h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+   <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>
+                        <span style="font-size: 45px; color: orange; letter-spacing: -5px;">L</span>
+                        <span style="font-size: 45px; color: orange; letter-spacing: -1px;">²</span>
+                        <span style="font-size: 45px; color: orange; letter-spacing: -8.5px;">M</span>
+                        <span style="font-size: 45px; color: green; letter-spacing: -1px;">F</span>
+                        <span style="font-size: 45px; color: green; letter-spacing: -2px;">arm</span>
+                    </h1>
+                </div>
+                
+                <div class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#platforms">Our Platforms</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#app-screens">App Experience</a></li>
+                    </ul>
+                    <div class="auth-buttons mobile">
+                        <button class="btn btn-outline">Log In</button>
+                        <button class="btn btn-primary">Start Free Trial</button>
+                    </div>
+                </nav>
+                <div class="auth-buttons desktop-only">
+                    <button class="btn btn-outline">Log In</button>
+                    <button class="btn btn-primary">Start Free Trial</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Hero Slider - Updated with L²MTracking -->
+    <section id="heroTop" class="hero-slider">
+        <!-- Slide 1: Main Suite Introduction -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');">
+            <div class="hero-title">
+                <h1>Welcome to the RegeneratorsTech Suite</h1>
+            </div>
+            <div class="hero-subtitle">
+                <p>An integrated ecosystem of agricultural solutions: L²MFarm for management, L²MTracking for logistics, and L²MLink (coming soon) for marketplace connectivity.</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Explore Our Platforms</button>
+                <button class="btn btn-outline" style="color: white; border-color: white;">Learn About the Suite</button>
+            </div>
+        </div>
+
+        <!-- Slide 2: L²MFarm Focus -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="hero-title">
+                <h1>L²MFarm: Complete Farm Management</h1>
+            </div>
+            <div class="hero-subtitle">
+                <p>Manage machinery, fields and crops, schedule tasks, and analyze performance — all in one place with our intuitive platform.</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-outline" style="color: white; border-color: white;">View L²MFarm Features</button>
+            </div>
+        </div>
+
+        <!-- NEW Slide 3: L²MTracking Introduction -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="hero-title">
+                <h1>L²MTracking: Real-Time Asset Monitoring</h1>
+            </div>
+            <div class="hero-subtitle">
+                <p>Track machinery location, monitor utilization, and optimize fleet management with our GPS-enabled tracking platform.</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-outline" style="color: white; border-color: white;">Discover L²MTracking</button>
+            </div>
+        </div>
+
+        <!-- Slide 4: Data-Driven Decisions -->
+        <div class="slide" style="background-image: url('image_file/digital_soln.jpg');">
+            <div class="hero-title">
+                <h1>Integrated Data for Better Decisions</h1>
+            </div>
+            <div class="hero-subtitle">
+                <p>Combine farm management data with real-time tracking insights for comprehensive agricultural intelligence.</p>
+            </div>
+            <div class="hero-buttons">
+                <button class="btn btn-outline" style="color: white; border-color: white;">Learn More</button>
+            </div>
+        </div>
+        
+        <!-- Slider navigation -->
+        <div class="slider-nav">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+            <div class="slider-dot" data-slide="3"></div>
+        </div>
+        
+        <div class="slider-arrows">
+            <div class="slider-arrow prev">
+                <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="slider-arrow next">
+                <i class="fas fa-chevron-right"></i>
+            </div>
+        </div>
+    </section>
+<!-- dashboard sections --->
+<section class="dashboard-section_1">
+    <div class="container">
+        <div class="app-phone-mockup_1">
+            <img src="image_file/ds_tablet.jpg" alt="L²MFarm App - Task Management" class="app-screen_1" id="app-screen-img">
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section_2">
+    <div class="container">
+        <div class="app-phone-mockup_3">
+            <img src="image_file/ds_tablet_5.jpg" alt="L²MFarm App - Task Management" class="app-screen_3" id="app-screen-img">
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-section_3">
+    <div class="container">
+        <div class="app-phone-mockup_4">
+            <img src="image_file/fields_page.jpg" alt="L²MFarm App - Task Management" class="app-screen_4" id="app-screen-img">
+        </div>
+    </div>
+</section>
+
+    <!-- Welcome Message - Updated for Suite -->
+    <section class="welcome-message">
+        <div class="welcome-container">
+            <h1>RegeneratorsTech Suite</h1>
+            <div class="decorative-line"></div>
+            <p class="highlight-text">
+                The RegeneratorsTech Suite is an integrated ecosystem of agricultural solutions designed to transform Ethiopian farming. 
+                <strong>L²MFarm</strong> provides comprehensive farm management, <strong>L²MTracking</strong> offers real-time asset monitoring, 
+                and <strong>L²MLink</strong> (coming soon) will connect farmers with services and markets. Together, they create a seamless digital 
+                infrastructure that drives efficiency, transparency, and profitability across the agricultural value chain.
+            </p>
+            <h2 style="font-size: 0.9rem; font-style: italic;">
+                Join us in reshaping Ethiopian agriculture for a more productive, connected, and food-secure future.
+            </h2>
+        </div>
+    </section>
+
+    <!-- NEW: Platform Introduction Section -->
+    <section id="platforms" class="platform-intro-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Integrated Platform Ecosystem</h2>
+                <p>Three specialized solutions working together to transform agricultural management</p>
+            </div>
+            
+            <div class="platform-cards">
+                <!-- L²MFarm Card -->
+                <div class="platform-card l2mfarm">
+                    <div class="platform-icon">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <h3>L²MFarm</h3>
+                    <p><strong>Complete Farm Management Platform</strong></p>
+                    <p>Digitize and optimize every aspect of your farm operations with our comprehensive management tool.</p>
+                    
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check" style="color: #4CAF50;"></i> Field & Crop Management</li>
+                        <li><i class="fas fa-check" style="color: #4CAF50;"></i> Machinery & Equipment Tracking</li>
+                        <li><i class="fas fa-check" style="color: #4CAF50;"></i> Task Scheduling & Labor Management</li>
+                        <li><i class="fas fa-check" style="color: #4CAF50;"></i> Financial Analytics & Reporting</li>
+                    </ul>
+                </div>
+                
+                <!-- L²MTracking Card -->
+                <div class="platform-card l2mtracking">
+                    <div class="platform-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3>L²MTracking</h3>
+                    <p><strong>Real-Time Asset Monitoring System</strong></p>
+                    <p>Monitor machinery location, track utilization, and optimize your equipment fleet with GPS-enabled tracking.</p>
+                    
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check" style="color: #2196F3;"></i> Live GPS Location Tracking</li>
+                        <li><i class="fas fa-check" style="color: #2196F3;"></i> Utilization & Efficiency Analytics</li>
+                        <li><i class="fas fa-check" style="color: #2196F3;"></i> Maintenance Scheduling Alerts</li>
+                        <li><i class="fas fa-check" style="color: #2196F3;"></i> Geofencing & Security Features</li>
+                    </ul>
+                </div>
+                
+                <!-- L²MLink Card -->
+                <div class="platform-card l2mlink">
+                    <div class="platform-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <span class="coming-soon-badge">Coming Soon</span>
+                    <h3>L²MLink</h3>
+                    <p><strong>Agricultural Service & Marketplace Platform</strong></p>
+                    <p>Connect farmers with machinery services, input suppliers, and produce buyers through our integrated marketplace.</p>
+                    
+                    <ul class="platform-features">
+                        <li><i class="fas fa-check" style="color: #FF9800;"></i> Service Booking & Marketplace</li>
+                        <li><i class="fas fa-check" style="color: #FF9800;"></i> Input Procurement & Delivery</li>
+                        <li><i class="fas fa-check" style="color: #FF9800;"></i> Produce Sales & Market Access</li>
+                        <li><i class="fas fa-check" style="color: #FF9800;"></i> Digital Payments & Finance</li>
+                    </ul>
+                    
+                    <p style="margin-top: 15px; font-style: italic; color: #666;">
+                        <i class="fas fa-lightbulb" style="color: #FF9800; margin-right: 5px;"></i>
+                        <strong>Concept finalized</strong> - Currently in development
+                    </p>
+                </div>
+            </div>
+            
+            <div class="suite-highlight">
+                <h2>Integrated Power, Unified Vision</h2>
+                <p>
+                    While each platform delivers standalone value, their true power emerges when used together. 
+                    Data from L²MFarm informs machinery needs, L²MTracking ensures efficient service delivery, 
+                    and L²MLink connects the entire ecosystem. This is the future of agricultural technology in Ethiopia.
+                </p>
+                <button class="btn btn-primary" style="background: white; color: #2e7d32;">Learn About Integration Benefits</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section - Updated Context -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>L²MFarm: Comprehensive Farm Management</h2>
+                <p>As part of the RegeneratorsTech Suite, L²MFarm provides everything you need to manage your farm efficiently and profitably</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Your existing feature cards remain the same -->
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Field & Crop Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Create digital maps of your fields, plan crops, and monitor progress.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- ... [All your other existing feature cards remain exactly as they are] ... -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- The rest of your existing sections remain exactly the same -->
+    <!-- ... [Benefits Section, App Screens Section, CTA, Footer] ... -->
+
+    <!-- Updated Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="logo">
+                        <img src="image_file/l2m_farm_1.jpg" alt="RegeneratorsTech Suite Logo" class="logo-footer-img">
+                    </div>
+                    <p>Part of the RegeneratorsTech Suite - Integrated agricultural solutions for modern farming in Ethiopia.</p>
+                    <div class="platform-links" style="margin-top: 15px;">
+                        <a href="#" style="display: inline-block; margin-right: 10px; color: #4CAF50;"><strong>L²MFarm</strong></a>
+                        <a href="#" style="display: inline-block; margin-right: 10px; color: #2196F3;"><strong>L²MTracking</strong></a>
+                        <a href="#" style="display: inline-block; color: #FF9800;"><strong>L²MLink</strong> <small>(Coming Soon)</small></a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Platforms</h3>
+                    <ul>
+                        <li><a href="#">L²MFarm (Farm Management)</a></li>
+                        <li><a href="#">L²MTracking (Asset Tracking)</a></li>
+                        <li><a href="#">L²MLink (Coming Soon)</a></li>
+                        <li><a href="#">Suite Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Community</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About RegeneratorsTech</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 RegeneratorsTech Suite. All rights reserved. L²MFarm, L²MTracking, and L²MLink are products of Regenerators Tech Ethiopia.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Toggle Menu
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', function() {
+                mainNav.classList.toggle('active');
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (mainNav && mainNav.classList.contains('active') && 
+                !mainNav.contains(event.target) && 
+                !menuToggle.contains(event.target)) {
+                mainNav.classList.remove('active');
+            }
+        });
+        
+        // Hero Slider
+        function initHeroSlider(sliderId) {
+            const slider = document.querySelector(`#${sliderId}`);
+            if (!slider) return;
+            
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.querySelectorAll('.slider-dot');
+            const prevArrow = slider.querySelector('.slider-arrow.prev');
+            const nextArrow = slider.querySelector('.slider-arrow.next');
+            
+            if (slides.length === 0) return;
+            
+            let currentSlide = 0;
+            let slideInterval;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+
+                if (n >= slides.length) currentSlide = 0;
+                else if (n < 0) currentSlide = slides.length - 1;
+                else currentSlide = n;
+
+                slides[currentSlide].classList.add('active');
+                if (dots[currentSlide]) {
+                    dots[currentSlide].classList.add('active');
+                }
+            }
+
+            function nextSlide() { showSlide(currentSlide + 1); }
+            function prevSlide() { showSlide(currentSlide - 1); }
+
+            if (nextArrow) nextArrow.addEventListener('click', nextSlide);
+            if (prevArrow) prevArrow.addEventListener('click', prevSlide);
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => showSlide(parseInt(dot.getAttribute('data-slide'))));
+            });
+
+            function startSlideShow() { slideInterval = setInterval(nextSlide, 5000); }
+            function stopSlideShow() { clearInterval(slideInterval); }
+
+            slider.addEventListener('mouseenter', stopSlideShow);
+            slider.addEventListener('mouseleave', startSlideShow);
+            startSlideShow();
+        }
+
+        // Initialize hero slider
+        initHeroSlider('heroTop');
+
+        // App Screens Slider
+        function createSlider_1(config) {
+            document.addEventListener('DOMContentLoaded', function() {
+                const {
+                    slideSelector = '.app-slide',
+                    dotSelector = '.app-slider-dot',
+                    prevBtnSelector = '.app-slider-arrow.prev',
+                    nextBtnSelector = '.app-slider-arrow.next',
+                    screenImgIds = [],
+                    containerSelector = '.app-slider-container',
+                    images = [],
+                    autoSlideInterval = 5000
+                } = config;
+
+                const appSlides = document.querySelectorAll(slideSelector);
+                const appDots = document.querySelectorAll(dotSelector);
+                const appPrevBtn = document.querySelector(prevBtnSelector);
+                const appNextBtn = document.querySelector(nextBtnSelector);
+                
+                // Get all screen images
+                const appScreenImgs = screenImgIds.map(id => document.getElementById(id));
+                
+                if (appSlides.length === 0) return;
+                
+                let currentAppSlide = 0;
+                let appInterval;
+
+                function showAppSlide(index) {
+                    appSlides.forEach(slide => slide.classList.remove('active'));
+                    appDots.forEach(dot => dot.classList.remove('active'));
+                    
+                    currentAppSlide = index;
+                    
+                    appSlides[currentAppSlide].classList.add('active');
+                    appDots[currentAppSlide].classList.add('active');
+                    
+                    // Update all screen images
+                    appScreenImgs.forEach((img, imgIndex) => {
+                        if (img && images[imgIndex] && images[imgIndex][currentAppSlide]) {
+                            img.src = images[imgIndex][currentAppSlide];
+                        }
+                    });
+                }
+
+                function nextAppSlide() {
+                    let nextIndex = currentAppSlide + 1;
+                    if (nextIndex >= appSlides.length) nextIndex = 0;
+                    showAppSlide(nextIndex);
+                }
+
+                function prevAppSlide() {
+                    let prevIndex = currentAppSlide - 1;
+                    if (prevIndex < 0) prevIndex = appSlides.length - 1;
+                    showAppSlide(prevIndex);
+                }
+
+                if (appNextBtn) appNextBtn.addEventListener('click', nextAppSlide);
+                if (appPrevBtn) appPrevBtn.addEventListener('click', prevAppSlide);
+                
+                appDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => showAppSlide(index));
+                });
+
+                function startAppAutoSlide() {
+                    appInterval = setInterval(nextAppSlide, autoSlideInterval);
+                }
+
+                function stopAppAutoSlide() {
+                    clearInterval(appInterval);
+                }
+
+                const appContainer = document.querySelector(containerSelector);
+                if (appContainer) {
+                    appContainer.addEventListener('mouseenter', stopAppAutoSlide);
+                    appContainer.addEventListener('mouseleave', startAppAutoSlide);
+                }
+
+                showAppSlide(0);
+                startAppAutoSlide();
+            });
+        }
+
+        // Initialize app slider
+        createSlider_1({
+            slideSelector: '.app-slide-2',
+            dotSelector: '.app-slider-dot-2',
+            prevBtnSelector: '.app-slider-arrow-2.prev',
+            nextBtnSelector: '.app-slider-arrow-2.next',
+            screenImgIds: ['app-screen-img-1', 'app-screen-img-2', 'app-screen-img-3'],
+            containerSelector: '.app-slider-container-2',
+            images: [
+                // Image arrays for each phone mockup
+                [
+                   'image_file/app_2.jpg',
+                    'image_file/create_planning.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg'   
+                    
+                ],
+                [
+                   'image_file/ds_tablet_1.png',
+                    'image_file/planning_web.jpg',
+                    'image_file/desktop_l2mfarm.png',
+                    'image_file/app_2.jpg',
+                    'image_file/ds_2.jpg'   
+                   ],
+                [
+                  'image_file/app_1.jpg',
+                    'image_file/fields_page.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_2.jpg',
+                    'image_file/app_3.jpg'   
+                      ]
+            ],
+            autoSlideInterval: 5000
+        });
+    </script>
+</body>
+</html>

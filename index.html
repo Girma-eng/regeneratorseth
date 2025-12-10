@@ -1,0 +1,2650 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Farm Hub - Agricultural Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+
+
+
+  /* Global Styles */
+  :root {
+            --primary: #2e7d32;
+            --secondary: #7cb342;
+            --accent: #ffab00;
+            --light: #f5f5f5;
+            --dark: #263238;
+            --text: #424242;
+        }
+        
+        body {
+            font-family: "Barlow Semi Condensed";
+            margin: 0;
+            padding: 0;
+            color: #333;
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            width: 100%;
+            max-width: 100%;
+        }
+
+        /* Address Section */
+        .address-section {
+            background-color: rgba(76, 200, 99, 0.5);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+	    height: 30px;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(76, 201, 99, 0.5);
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            z-index: 1000;
+            height: 70px;
+        }
+
+        
+      .logo {
+	    display: inline-block;
+	    background-color: white; /* White background */
+	    border-radius: 60%; /* Circular shape */
+	    padding: 15px; /* Space around the logo image */
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+	}
+
+	.logo img {
+	    display: block; /* Remove extra space below the image */
+	    width: 80px; /* Adjust the width to fit your needs */
+	    height: 70px; /* Adjust the height to fit your needs */
+	}
+/* Mobile Styles */
+        @media (max-width: 768px) {
+            
+         .logo {
+	    display: inline-block;
+	    background-color: white; /* White background */
+	    border-radius: 60%; /* Circular shape */
+	    padding: 8px; /* Space around the logo image */
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+	}
+
+	.logo img {
+	    display: block; /* Remove extra space below the image */
+	    width: 40px; /* Adjust the width to fit your needs */
+	    height: 40px; /* Adjust the height to fit your needs */
+	}
+
+           
+        }
+
+
+
+
+/* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #FFA500 !important;
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+
+/* Mobile Navigation */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #FFA500;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 100, 0, 0.95);
+            width: 200px;
+            padding: 15px;
+            z-index: 1001;
+        }
+
+        #mobile-menu a {
+            color: white !important;
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            #mobile-menu.active {
+                display: block;
+            }
+
+            header {
+                top: 30px;
+                height: 50px;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .slider {
+                margin-top: 80px;
+                height: calc(100vh - 80px);
+            }
+        }
+
+
+
+
+  /*<!--===// CSS:Slider
+	=========================================================-->*/
+  /* Base Styles */
+  .slider {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-item {
+            height: 70vh;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Text Styles */
+        .styled-text {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
+            margin: 10px 0;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Content Positioning */
+        .hero {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 3;
+            width: 50%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .secondary-title {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            color: white;
+            text-align: left;
+            width: 75%;
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 50%;
+            text-align: left;
+        }
+
+        .slide-content h2 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .highlight {
+            color: #FFD700;
+        }
+
+        /* Button Styles */
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2px;
+            position: relative;
+            z-index: 4;
+            font-weight: 600;
+           letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 15%;
+            opacity: 1;
+            transition: opacity 0.3s;
+            z-index: 5;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            background-size: 60%;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+            top: 60%;
+            left: 10%;
+            z-index: 3;
+            width: 80%;
+           
+        }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .slide-content h2 {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content h2 {
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+            
+            .styled-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider,
+            .carousel-item {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .slide-content {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 80%;
+            text-align: left;
+        }
+        .slide-content h2 {
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+            
+            .styled-text {
+                font-size: 1.1rem;
+                padding: 3px 8px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider,
+            .carousel-item {
+                height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.50rem;
+                margin-bottom: 15px;
+            }
+            .hero h2 {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            
+            .slide-content h2 {
+            font-size: 1.1rem;
+            line-height: 1.6rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+            
+            .styled-text {
+                font-size: 1rem;
+                border-width: 2px;
+                margin: 5px 0;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                margin-top: 15px;
+            }
+            
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .slider,
+            .carousel-item {
+                height: 80vh;
+            }
+        }
+	
+ /*<!--===// CSS:welcome:start
+	=========================================================-->*/
+
+
+	.welcome-message {
+    		background-color: #f8f9fa;
+  		padding: 40px 0;
+    		text-align: center;
+    		position: relative;
+   		    z-index: 2;
+    		width: 100vw; /* Full viewport width */
+    		margin-left: calc(-50vw + 50%); /* Counteract container padding */
+	}
+
+	.welcome-container {
+	    max-width: 100% !important; /* Override any max-width constraints */
+	    margin: 0 auto;
+	   padding: 60px 5% 40px;
+	}
+
+	.welcome-message h2 {
+    color: #2d6a4f;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+       font-family: "Barlow Semi Condensed";
+	}
+
+
+  
+
+    .welcome-message p {
+        color: #333;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 25px;
+       max-width: 100% !important; /* Full width text */
+          font-family: "Barlow Semi Condensed";
+        
+
+    }
+  .decorative-line {
+        width: 80px;
+        height: 3px;
+        background-color: #d90429;
+        margin: 0 auto 30px;
+    }
+    .highlight-text {
+        color: #2d6a4f !important;
+        font-weight: 400;
+        font-size: 1.2rem !important;
+         font-family: "Barlow Semi Condensed";
+	
+    }
+
+    @media (max-width: 768px) {
+        .welcome-container {
+	    max-width: 100% !important; /* Override any max-width constraints */
+	    margin: 0 auto;
+	    padding: 20px 5px 6px; /* Use percentage-based padding */
+	}
+        .welcome-message {
+            padding: 10px 0;
+        }
+
+        .welcome-message h2 {
+            font-size: 1.3rem;
+        }
+
+        .welcome-message p {
+            font-size: 0.9rem;
+            padding: 0 15px;
+            line-height:1.4rem;
+        }
+        
+        .highlight-text {
+            font-size: 0.9rem !important;
+            line-height: 1.5rem;
+        }
+    }
+
+
+
+/*<!--===// CSS:Why Choose Us CSS
+	======================================================================================================================================-->*/
+
+
+	* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .why-farmhub {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8fff8 0%, #e6f5e6 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .container-innovative {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .benefit-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.4rem;
+            color: #2c5f2d;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .why-farmhub {
+            padding: 20px 10px;
+            background: linear-gradient(135deg, #f8fff8 0%, #e6f5e6 100%);
+        }
+
+            .benefits-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .benefit-card {
+                max-width: 100%;
+            }
+            .section-title {
+            
+                font-size: 1.5rem;
+                color: #2c5f2d;
+                letter-spacing: 1px;
+                }
+
+        }
+
+ /*<!--===// CSS: Innovative Solutions Section
+	======================================================================================================-->*/
+    
+        
+        .section-title-innov {
+            position: relative;
+            text-align: center;
+            margin-bottom: 80px;
+            color: white;
+            z-index: 1;
+        }
+        
+        .section-title-innov h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .section-title-innov p {
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .section-title-innov .divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* Innovative Solutions Section - Enhanced */
+        .innovative-solutions {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 12px;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border-top: 25px solid green;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .solution-icon {
+            font-size: 2.8rem;
+            color: greenyellow;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .solution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .solution-card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .solution-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .stat-badge {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: green;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-badge i {
+            font-size: 0.7rem;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            .innovative-solutions {
+                padding: 50px 20px;
+                background-attachment: scroll;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+
+   
+        .innovative-section {
+            padding: 100px 20px;
+            min-height: 100vh;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease;
+        }
+
+        .innovative-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            position: relative;
+            text-align: center;
+            margin-bottom: 80px;
+            color: white;
+            z-index: 1;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 300%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('image_file/wheat_field_4.jpg') no-repeat center center/cover;
+            filter: brightness(0.5);
+            z-index: -1;
+        }
+
+        .solutions-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+ 	   color: green;
+        }
+
+        .solution-slide {
+            display: none;
+	        max-width: 1200px;
+            animation: slide 1s forwards;
+            text-align: center;
+ 	        color: green;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 0 auto;
+            font-size: 1.5rem;
+        }
+        .solution-slide h3 {
+           
+            font-size: 2.5rem;
+            font-size: 600;
+        }
+        .solution-slide p {
+           
+           font-size: 1.3rem;
+           font-size: 600;
+       }
+ 	#background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+	.background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .background-image.active {
+            opacity: 1;
+        }
+        
+        @keyframes slide {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .solution-slide.active {
+            display: block;
+        }
+
+        /* Impact Sections */
+        .impact-section {
+            position: relative;
+            min-height: 10vh;
+            overflow: hidden;
+        }
+
+         .impact-section::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('image_file/maize_field.jpg') no-repeat center center/cover;
+            z-index: -1;
+            clip-path: inset(100% 0 0 0);
+            transition: clip-path 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .impact-section.active::before {
+            clip-path: inset(0 0 0 0);
+        }
+
+        .impact-content {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .impact-text {
+            max-width: 80%;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 80px;
+            backdrop-filter: blur(5px);
+            transform: translateY(0);
+            transition: transform 0.1s;
+        }
+
+       
+    
+.service-message {
+	        background-color: #f8f9fa;
+	        padding: 60px 0;
+	        text-align: center;
+	        position: relative;
+	        z-index: 2;
+	    }
+
+
+   
+	.soln {
+	    padding: 10px 10%;
+	    text-align: center;
+	    background-color: rgba(255, 255, 255, 0.9);
+	    margin-bottom: 50px; /* Adds space after the section */
+	    border-radius: 10px; /* Optional: Rounds the corners */
+ 		height: 15vh;
+	}
+
+ 	.soln h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+
+        .soln .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+      
+ 	.soln .featureinn {
+            width: 22%;
+            margin-bottom: 10px;
+	   color: green;
+        }
+
+
+   /* ====================  Benefits: Container with Green Background=========== */
+   .green-container {
+       
+        padding: 50px 5px;
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                            url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        border-radius: 12px;
+        }
+
+    .section-title-innov {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+    }
+
+    .divider {
+      width: 80px;
+      height: 4px;
+      background: white;
+      margin: 10px auto;
+    }
+
+    .four-column-section {
+      display: flex;
+      min-height: 500px;
+      width: 100%;
+      gap: 20px;
+      padding: 20px 20px 60px 60px;
+      
+    }
+
+    .column {
+      display: flex;
+     
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      
+      padding: 20px;
+      position: relative;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: width 0.3s ease;
+      background-color: #28a745;
+      min-height: 500px;
+
+    }
+    .column.active {
+            width: 50% !important;
+        }
+    .column-content {
+        display: flex;
+  flex-direction: column;
+      position: relative;
+      z-index: 2;
+      justify-content: flex-end;
+     
+    }
+
+    .column-1 {
+      width: 10%;
+      background-image: url('image_file/maize_field.jpg');
+     
+    }
+
+    .column-2 {
+      width: 10%;
+      background-image: url('image_file/digital_soln.jpg');
+      
+    }
+
+    .column-3 {
+      width: 10%;
+      background-image: url('image_file/tractor_3.jpg');
+    }
+
+    .column-4 {
+      width: 52%;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .column-4::before {
+      display: none;
+    }
+
+    .column::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+      border-radius: 50px;
+    }
+
+    /* Vertical title for columns 1-3 */
+    .column-1 h2,
+    .column-2 h2,
+    .column-3 h2 {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      
+      font-size: 1.4rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .column-1 p,
+    .column-2 p,
+    .column-3 p {
+     
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    /* When active, rotate title to horizontal */
+    .column-1.active h2,
+    .column-2.active h2,
+    .column-3.active h2 {
+      writing-mode: horizontal-tb;
+      transform: rotate(0deg);
+    }
+
+    .detail-text {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .column.active .detail-text {
+      display: block;
+    }
+
+    .column-4 img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .four-column-section {
+        flex-direction: column;
+        gap: 20px;
+      padding: 20px 20px 15px 15px;
+      
+    }
+
+      .column {
+        width: 100% !important;
+        min-height: 80px;
+        padding: 10px 4px 10px 15px;
+      }
+
+      .column.active {
+            width: 100% !important;
+        }
+        .column-1 {
+         background-image: url('image_file/cartoon_3.jpg');
+       }
+       .column-2 {
+         background-image: url('image_file/farmhub_model.jpg');
+       }
+       .column-4 {
+     display: none;
+    }
+     
+      .column-1 h2,
+      .column-2 h2,
+      .column-3 h2 {
+        writing-mode: horizontal-tb !important;
+        transform: none !important;
+        font-size: 1.2rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-bottom: 20px;
+      }
+            .column-1 p,
+            .column-2 p,
+            .column-3 p {
+            
+            font-size: 1.0rem;
+            line-height: 1.4rem;
+            transition: all 0.3s ease;
+            }
+    }
+
+    .column {
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+
+/*<!--===// CSS:Our News Section
+	=============================================================================================-->*/
+
+
+
+
+
+.news-section {
+    padding: 80px 20px; /* Add padding like .why-farmhub */
+    background: #f9f9f9;
+}
+.news-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.news-item {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.news-section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c5f2d;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+.news-thumbnail {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+.read-more {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.read-more:hover {
+    color: #45a049;
+}
+
+/* Modal Styles */
+.news-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    background: white;
+    width: 80%;
+    max-width: 800px;
+    margin: 5% auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.modal-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal-text {
+    padding: 30px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 90%;
+        margin: 10% auto;
+    }
+    
+    .modal-image {
+        height: 250px;
+    }
+    
+    .modal-text {
+        padding: 20px;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+}
+
+
+/*<!--===// CSS: Seeing is Believing Section:Start
+	==============================================================================-->*/
+
+
+
+   .gallery-section {
+        padding: 20px;
+        margin: 0 auto;
+        max-width: 90%;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 4 columns for desktop */
+        gap: 20px; /* Space between items */
+    }
+
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .gallery-image {
+        width: 100%;
+        height: auto;
+        display: none; /* Hide all images by default */
+    }
+
+    .gallery-image.active {
+        display: block; /* Show only the active image */
+    }
+
+    .gallery-caption {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .gallery-grid {
+            grid-template-columns: 1fr; /* Single column for mobile */
+        }
+
+        .gallery-item {
+            margin-bottom: 20px; /* Add space between items */
+        }
+    }
+
+
+
+/*<!--===// CSS: Footer
+	==============================================================================-->*/
+/* CTA Section */
+:root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffab00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+        }
+
+        .cta-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image_file/landscape_2.jpg');
+            color: #fff;
+            padding: 30px 0 0;
+            font-family: 'Open Sans', sans-serif;
+            position: relative;
+            
+        }
+
+        .cta-section a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            color: #8bc34a;
+        }
+
+        .cta-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 15px;
+            font-family: "Barlow Semi Condensed";
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .footer-column {
+            padding: 0 30px;
+            box-sizing: border-box;
+            position: relative;
+            
+        }
+
+        /*  column widths */
+        .footer-column:nth-child(1) {
+            width: 25%;
+        }
+        .footer-column:nth-child(2) {
+            width: 60%;
+            border-left: 1px solid rgba(26, 149, 92, 0.6);
+            border-right: 1px solid rgba(27, 149, 92, 0.6);
+            margin-top: 50px;
+            
+        }
+        .footer-column:nth-child(3) {
+            width: 15%;
+        }
+
+        /* Logo Section */
+        .footer-logo {
+            margin-bottom: 20px;
+           
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .footer-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+           
+            font-weight: 600;
+            text-align: center;
+            align-items: center;  
+        }
+    
+
+        .footer-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        /* Contact Info Section */
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-icon {
+            margin-right: 15px;
+        }
+
+        .footer-contact-icon span {
+            font-size: 24px;
+            color: #8bc34a;
+        }
+
+        .footer-contact-title {
+            font-size: 1.1rem;
+            margin: 0 0 5px 0;
+            color: var(--accent);
+        }
+
+        .footer-contact-details {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Links Section */
+        .cta-links {
+            margin-bottom: 30px;
+            
+        }
+
+        .cta-links h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .cta-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cta-links li {
+            margin-bottom: 10px;
+        }
+
+        /* Social Media Icons */
+        .footer-social-links {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .footer-social-icon i {
+                font-size: 20px;
+                color: white;
+                background-color: #3b5998; /* adjust per platform */
+                border-radius: 50%;
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+            .footer-social-icon:hover i {
+                background-color: #1d3a7b;
+            }
+
+        .footer-social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #8bc34a;
+        }
+
+        /* Copyright Section */
+        .footer-copyright-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .footer-copyright a {
+            color: #8bc34a;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 980px) {
+            .footer-column {
+                width: 100% !important;
+                padding: 0 15px;
+                margin-bottom: 30px;
+            }
+            
+            .footer-column:nth-child(2) {
+                border-left: none;
+                border-right: none;
+                border-top: none;
+               border-bottom: 1px solid rgba(27, 149, 92, 0.6);
+                padding-top: 5px;
+                padding-bottom: 10px;
+            }
+            .footer-column:nth-child(1) {
+                border-left: none;
+                border-right: none;
+                border-top: none;
+               border-bottom: 1px solid rgba(27, 149, 92, 0.6);
+                padding-top: 5px;
+                padding-bottom: 10px;
+            }
+        }
+     
+        @media (max-width: 768px) {
+            .footer-heading {
+            font-size: 20px;
+           
+            align-items: center;  
+        }
+    
+
+        .footer-description {
+            font-size: 1.0rem;
+           
+           
+
+        }
+            .footer-row {
+                margin-bottom: 20px;
+            }
+            
+            .footer-logo {
+                max-width: 200px;
+            }
+
+            
+        }
+    /* Mobile Reorder (50%-25%-25%) */
+    @media (max-width: 768px) {
+            .footer-column:nth-child(1) { order: 2; flex: 0 0 100%; }
+            .footer-column:nth-child(2) { order: 1; flex: 0 0 100%; }
+            .footer-column:nth-child(3) { order: 3; flex: 0 0 100%; }
+        }
+
+    </style>
+</head>
+
+
+
+
+<!--===// 
+	==========================================================================================================-->
+
+<!--===// Body
+	==========================================================================================================-->
+
+
+
+  
+<body>
+
+
+
+    
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="image_file/logo_regenerators_leaf.jpg" alt="Logo">
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="digital_platform.html">Digital Platform</a>
+	        <a href="contact.html">Contact us</a>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="digital_platform.html">Digital Platform</a>
+	    <a href="contact.html">Contact us</a>
+        </div>
+    </header>
+
+
+ 
+
+
+
+
+
+<!--===// Slider
+	=========================================================-->
+
+
+
+   
+    <div class="slider">
+          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+		</button>
+
+                <div class="carousel-item active">
+                    <img src="image_file/wheat_field_2.jpg" class="d-block w-100" alt="Slider Image 1">
+
+                    <div class="hero">
+			            <h1>Regenerators Tech Ethiopia</h1>
+                         <h2>Empowering Ethiopian Farmers With <span class="highlight"> Sustainable Solutions</span></h2>
+                        
+                    </div>
+                </div>
+
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="image_file/super_seeder_1.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+ 			<p class="styled-text">Mechanization Services</p>
+                        <h2>Revolutionizing farming with advanced mechanization services that save time, <span class="highlight">increase efficiency, and boost crop yields</span></h2>
+                       
+                        <a href="service.html#mechanization-service-category" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="image_file/digital_soln.jpg" class="d-block w-100" alt="Slider Image 3">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+			<p class="styled-text">Digital Solutions</p>
+                        <h2>Transforming agriculture with our digital platform, connecting farmers to vital resources <span class="highlight">and services for smarter farming</span></h2>
+                        
+                        <a href="service.html#digital-solutions" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+		<!-- Slide 4 -->
+                <div class="carousel-item">
+                    <img src="image_file/advisory_1.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+			<p class="styled-text">Advisory</p>
+                         <h2>Guiding farmers towards sustainable agricultural practices, ensuring long-term <span class="highlight">success and environmental preservation.</span></h2>
+                        
+                        <a href="service.html#mechanization" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+		<!-- Slide 5 -->
+                <div class="carousel-item">
+                    <img src="image_file/seed_fert.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+		<p class="styled-text">Quality Inputs</p>
+                         <h2>Supplying high-quality seeds, fertilizers, and farming  <span class="highlight">inputs to drive growth and enhance crop production</span></h2>
+                        
+                        <a href="service.html#mechanization" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--===// Welcome
+	=========================================================-->
+
+
+<section class="welcome-message">
+    <div class="welcome-container">
+        <h2>   Welcome to Regenerators Tech Ethiopia!</h2>
+        <div class="decorative-line"></div>
+        <p class="highlight-text">
+        
+                At Regenerators Tech Ethiopia, we are pioneering a new era for Ethiopian agriculture by directly tackling its most 
+                critical constraint: access to mechanization. We drive innovation through a unique, scalable approach: integrating 
+                franchised mechanization services with integrated digital solutions to transform the entire agricultural value chain. 
+                We equip farmers, from smallholders to commercial producers, with advanced technologies and digital platforms that boost efficiency, 
+                sustainability, and profitability. Our mission is to bridge systemic gaps by providing franchised service networks, digital tools for 
+                transparent market access, and pathways to financial inclusion, creating a more connected and resilient farming ecosystem. 
+                We specialize in customized solutions that address Ethiopia's unique challenges while promoting sustainable growth and food security.
+
+           </p>
+            <p class="highlight-text">
+             Join us in shaping the future. Discover how our integrated AgTech suite and franchise model—combining practical machinery services, 
+             smart digital platforms, and deep agronomic expertise—is cultivating success and unlocking prosperity in fields across the nation.
+                </p>
+  
+          
+    </div>
+</section>
+
+
+<!--===// Why Choose Us Section
+	=======================================================================-->
+   
+
+
+
+    <section class="why-farmhub">
+        <div class="container">
+            <h2 class="section-title">Why Regenerators Tech Ethiopia?</h2>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <i class="fas fa-seedling benefit-icon"></i>
+                    <h3 class="benefit-title">Holistic Solutions</h3>
+                    <p class="benefit-text">Integrated approach combining traditional wisdom with modern technology for complete farm management and growth.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-leaf benefit-icon"></i>
+                    <h3 class="benefit-title">Sustainability First</h3>
+                    <p class="benefit-text">Eco-friendly practices that ensure long-term productivity while preserving natural resources for future generations.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-users benefit-icon"></i>
+                    <h3 class="benefit-title">Community Empowerment</h3>
+                    <p class="benefit-text">Building strong agricultural networks through knowledge sharing and collaborative farming initiatives.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <i class="fas fa-lightbulb benefit-icon"></i>
+                    <h3 class="benefit-title">Innovation Driven</h3>
+                    <p class="benefit-text">Pioneering smart farming techniques and data-driven insights to maximize yield and efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+  
+<!-- =============== Innovative Solution ========= -->
+
+
+<div class="green-container"> 
+    <div class="section-title-innov">
+      <h2>Our Innovative Solutions</h2>
+      <div class="divider"></div>
+      <p>Discover how we're transforming Ethiopian agriculture through integrated technology and farmer-centric systems - <span class="highlight" style="font-size:0.9rem; font-style: italic;">Click the columns for detail</span></p>
+          
+    </div>
+
+    <section class="four-column-section">
+      <!-- Column 1 -->
+      <div class="column column-1" onclick="changeLayout(1)">
+        <div class="column-content">
+          <h2>Integrated Solutions</h2>
+          <div class="detail-text">
+           
+             <p>We provide a comprehensive, end-to-end approach to modernizing agriculture. Our solution integrates sustainable mechanization services with
+                integrated digital platforms and a seamless input distribution network. We enable farmers to plan, track, and 
+                manage all operations efficiently through smart platforms like L2MFarm, access digital payments and credit via
+              
+               <span style="font-size: 45; color: orange; letter-spacing: 1px;">L²M</span>
+                <span style="font-size: 45; color: rgb(255, 255, 255); letter-spacing: -1px;">Link </span>
+                Finance, and utilize efficient machinery services. This connected ecosystem ensures a smarter, more productive, and sustainable future for every farmer.
+    </p>
+
+            </div>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="column column-2" onclick="changeLayout(2)">
+        <div class="column-content">
+          <h2>Interconnected Ecosystem</h2>
+          <div class="detail-text">
+           <p>Our power lies in an interconnected technology system. Local Farm Hubs, operating as franchise service centers, provide farmers with direct access to equipment, digital tools, and training. 
+                These interconnected hubs create a network where farmers can share knowledge, access real-time market data via the L2MLink Marketplace, and leverage collective bargaining power. This drives systemic change, creating a virtuous cycle of collaboration that enhances livelihoods and advances food sovereignty across Ethiopia.
+            </p>
+   </div>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="column column-3" onclick="changeLayout(3)">
+        <div class="column-content">
+          <h2>From Seed to System</h2>
+          <div class="detail-text">
+           <p>Our mission is to reach every farming community. We build repeatable and scalable models—like our franchise hub network—that demonstrate how effective local solutions can be efficiently expanded across Ethiopia and beyond, ensuring widespread impact and sustainable transformation.</p>
+     </div>
+        </div>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="column column-4" id="image-column">
+        <div class="column-content" id="default-content">
+          <h2>Discover how we're transforming Ethiopian agriculture through integrated technology and farmer-centric systems</h2>
+          <p>Click the columns for detail</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+      
+      <!-- === Space Gap After Section === -->
+      <div class="space-gap"></div>
+      
+      
+
+
+
+
+
+
+
+
+
+<!--===// News
+	=======================================================================-->
+ 
+
+ 
+
+<section class="service-message">
+    <div class="welcome-container">
+    <h2 class="news-section-title">Our News</h2>
+    <div class="news-grid">
+        <!-- News Item 1 -->
+        <div class="news-item">
+            <img src="image_file/farm_hub_equip.jpg" alt="Farm Hub Ethiopia Completes First Year of Pilot Project " class="news-thumbnail">
+            <div class="news-content">
+                <h3>Farm Hub Ethiopia Completes First Year of Pilot Project</h3>
+                <p class="news-excerpt">A successful first year has demonstrated improved labor efficiency and crop yields, paving the way for sustainable agricultural growth.
+
+...</p>
+                <a href="#" class="read-more" 
+                   data-title="Farm Hub Ethiopia Completes First Year of Pilot Project " 
+                   data-content="Farm Hub Ethiopia has successfully concluded its transformative agricultural pilot program in partnership with Hawassa University, demonstrating significant advancements in sustainable farming practices. The year-long initiative combined cutting-edge technology transfer with regenerative agriculture methods, achieving a 35% increase in crop yields and 55% reduction in labor requirements across demonstration plots.
+
+The program's first phase established critical infrastructure, including the customization of five specialized machinery types imported from India and the creation of an IoT-enabled smart farming demonstration site. This technological foundation enabled Phase Two's intensive capacity-building efforts, which trained 150 smallholder farmers in precision agriculture techniques through 12 hands-on workshops focused on ecological practices.
+
+"These results validate our farmer-first approach," said Farm Hub's Project Director. "By integrating multi-crop planters that reduced planting labor by 60% and implementing our digital farm management system for 200+ users, we're seeing 80% adoption rates of demonstrated technologies within participant communities."
+
+Notable achievements include the establishment of 50 regenerative farming demonstration plots serving as local learning hubs, and the development of a replicable service delivery model now being prepared for national scaling. Early adopters reported enhanced productivity alongside reduced environmental impact through optimized input usage.
+
+Looking ahead, Farm Hub Ethiopia outlines an ambitious expansion plan targeting three new regions by 2025. Future initiatives will introduce solar-powered irrigation systems, launch a mobile-based crop advisory platform, and develop sustainable business models to ensure long-term smallholder profitability. "This pilot proves our model can simultaneously boost yields, protect ecosystems, and strengthen rural economies," the Director added."
+                   data-image="image_file/farm_hub_equip.jpg">
+                    Read Full Story
+                </a>
+            </div>
+        </div>
+
+        <!-- News Item 2 -->
+        <div class="news-item">
+            <img src="image_file/partnership_1.jpg" alt="Partnership" class="news-thumbnail">
+            <div class="news-content">
+                <h3>Farm Hub Ethiopia Partners with Hawassa University</h3>
+                <p class="news-excerpt">A strategic collaboration to bring advanced machinery and digital tools to Ethiopian farmers, enhancing productivity and innovation....</p>
+                <a href="#" class="read-more"
+                   data-title="Farm Hub Ethiopia Partners with Hawassa University"
+                   data-content="Farm Hub Ethiopia Partners with Hawassa University to Advance Agricultural Innovation
+
+Farm Hub Ethiopia is proud to announce a strategic partnership with Hawassa University, a collaboration aimed at driving agricultural innovation and improving farming practices in Ethiopia. This partnership marks a significant step toward integrating cutting-edge technology with sustainable agricultural methods to enhance productivity and efficiency for smallholder farmers.
+
+As part of this collaboration, Farm Hub Ethiopia has worked closely with Hawassa University to pilot advanced agricultural machinery, conduct field trials, and provide training to farmers and stakeholders. The partnership has facilitated the introduction of multi-crop planters and digital farm management tools, which have already demonstrated positive results in improving labor efficiency and increasing crop yields.
+
+By leveraging the research capabilities of Hawassa University and the practical expertise of Farm Hub Ethiopia, the initiative seeks to bridge the gap between academic knowledge and real-world farming solutions. The collaboration also focuses on technology transfer, ensuring that smallholder farmers gain access to modern, sustainable agricultural practices.
+
+Looking forward, Farm Hub Ethiopia and Hawassa University plan to expand their joint efforts by conducting further field demonstrations, refining business models, and exploring the integration of renewable energy solutions into agricultural mechanization. This partnership reinforces a shared commitment to equipping Ethiopian farmers with the tools and knowledge needed to build a resilient and productive agricultural sector.
+
+"
+                   data-image="image_file/partnership_1.jpg">
+                    Read Full Story
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- News Modal -->
+<div id="newsModal" class="news-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img class="modal-image" id="modalImage" alt="News Image">
+        <div class="modal-text">
+            <h2 id="modalTitle"></h2>
+            <p id="modalContent"></p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <!--===// Gallery
+	===================================================================================-->
+
+
+
+
+
+<div class="gallery-section">
+<div class="text-center mb-5">
+                
+		<h2 class="display-4 text-center mb-5">Seeing is Believing</h2>
+            </div>
+  
+    <div class="gallery-grid">
+        <!-- Position 1 -->
+        <div class="gallery-item">
+            <img src="image_file/wheat_field_2.jpg" class="gallery-image active" data-caption="Field Trial">
+            <img src="image_file/maize_field.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/wheat_field_2.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/potato_field.jpg" class="gallery-image" data-caption="Field Trial">
+            <img src="image_file/wheat_field_4.jpg" class="gallery-image" data-caption="Field Trial">
+            <div class="gallery-caption">Field Trial</div>
+        </div>
+
+        <!-- Position 2 -->
+        <div class="gallery-item">
+            <img src="image_file/demo_1.jpg" class="gallery-image active" data-caption="Demonstration">
+            <img src="image_file/demo_6.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/demo_3.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/demo_4.jpg" class="gallery-image" data-caption="Demonstration">
+            <img src="image_file/demo_5.jpg" class="gallery-image" data-caption="Demonstration">
+            <div class="gallery-caption">Demonstration</div>
+        </div>
+
+        <!-- Position 3 -->
+        <div class="gallery-item">
+            <img src="image_file/partnership_1.jpg" class="gallery-image active" data-caption="Partnership">
+            <img src="image_file/partnership_2.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/partnership_3.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/visit_1.jpg" class="gallery-image" data-caption="Partnership">
+            <img src="image_file/partnership_4.jpg" class="gallery-image" data-caption="Partnership">
+            <div class="gallery-caption">Partnership</div>
+        </div>
+
+        <!-- Position 4 -->
+        <div class="gallery-item">
+            <img src="image_file/visit_1.jpg" class="gallery-image active" data-caption="Visit">
+            <img src="image_file/visit_2.jpg" class="gallery-image" data-caption="Visit">
+            <img src="image_file/visit_3.jpg" class="gallery-image" data-caption="Visit">
+            <img src="image_file/visit_4.jpg" class="gallery-image" data-caption="Visit">
+            <img src="image_file/visit_5.jpg" class="gallery-image" data-caption="Visit">
+            <div class="gallery-caption">Visit</div>
+        </div>
+    </div>
+</div>
+
+
+
+
+  <!--===// Partners
+	===================================================================================-->
+
+
+
+
+
+    <!-- Partners -->
+    <section class="py-5 bg-light">
+        <div class="container text-center">
+	<div class="col-12 text-center mb-5">
+            <h2 class="display-4">Partners</h2>
+		<div class="decorative-line"></div>
+		
+            <div class="row">
+<div class="col-md-12">
+                    <img src="image_file/partners.jpg" class="section-img w-100" alt="Farming Challenge">
+                </div>
+                
+
+	</div>
+            </div>
+        </div>
+    </section>
+
+  <!--===// Footer
+	===================================================================================-->
+
+<footer class="cta-section">
+    <div class="cta-container">
+        <div class="footer-row">
+            <!-- First Column: Logo and Contact Info (25%) -->
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="image_file/logo_with_text_white.png" alt="Farm Hub Logo" />
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>📍</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Address</h4>
+                        <div class="footer-contact-details">
+                            Addis Ababa, Ethiopia<br />
+                            Hawassa: HU IoT Campus
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>✉️</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Email</h4>
+                        <div class="footer-contact-details">
+                            <a href="mailto:info@farmhub.et" style="font-weight: bold; color: yellowgreen;">
+                                girma.moges@farmlab-ethiopia.com
+                              </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>📞</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Phone</h4>
+                        <div class="footer-contact-details">+251 911112602</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Column: Contact Info (50%) -->
+            <div class="footer-column">
+                <h2 class="footer-heading"> Join Us in Transforming Ethiopian Agriculture</h2>
+                <div class="footer-description">
+                    Farm Hub Ethiopia is scaling rapidly. From a successful pilot to a full expansion and franchise model by 2028, we're creating opportunities for entrepreneurs, investors, researchers, and farmers to participate in building a regenerative, equitable food system.
+                    
+                </div>
+                <div class="footer-description">
+                    <a href="contact.html" class="cta-button animate-on-scroll">Get in Touch</a>
+                </div>
+            </div>
+           
+            <!-- Third Column: Links and Social (25%) -->
+            <div class="footer-column">
+                <div class="cta-links">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="digital_platform.html">Digital Platform</a></li>
+                        <li><a href="products.html">Product Catalog</a></li>
+                        <li><a href="app.html">Download Our App</a></li>
+                        <li><a href="faq.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <ul class="footer-social-links">
+                    <li class="footer-social-item">
+                        <a href="https://www.facebook.com/" class="footer-social-icon" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="https://t.me/" class="footer-social-icon" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="https://linkedin.com/" class="footer-social-icon" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Copyright Row -->
+        <div class="footer-row footer-copyright-row">
+            <div class="footer-column">
+                <div class="footer-copyright">
+                    Copyright © 2025 . Farm Hub Ethiopia . All rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--===// 
+	==========================================================================================================-->
+
+<!--===// Script
+	==========================================================================================================-->
+
+
+
+
+
+
+  <!--===// Java: Menu toggle
+	===================================================================================-->
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#mobile-menu') && !e.target.closest('.hamburger')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on scroll
+        window.addEventListener('scroll', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+
+
+  <!--===// Java: Gallary
+	===================================================================================-->
+
+ <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryItems.forEach((item) => {
+        let images = item.querySelectorAll(".gallery-image");
+        let caption = item.querySelector(".gallery-caption");
+        let index = 0;
+
+        function showNextImage() {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+            caption.textContent = images[index].dataset.caption;
+        }
+
+        setInterval(showNextImage, 3000); // Change image every 3 seconds
+    });
+});
+
+ </script>
+
+ <!--===// Java: News Section
+	===================================================================================-->
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById("newsModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalContent = document.getElementById("modalContent");
+    const closeModal = document.querySelector(".close-modal");
+    
+    document.querySelectorAll(".read-more").forEach(button => {
+        button.addEventListener("click", function (e) {
+            e.preventDefault();
+            
+            const title = this.getAttribute("data-title");
+            const content = this.getAttribute("data-content");
+            const imageSrc = this.getAttribute("data-image");
+            
+            modalTitle.textContent = title;
+            modalContent.textContent = content;
+            modalImage.src = imageSrc;
+            
+            modal.style.display = "block";
+        });
+    });
+    
+    closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+    });
+    
+    window.addEventListener("click", function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        // Observe sections
+        document.querySelectorAll('.innovative-section, .impact-section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // Slideshow
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.solution-slide');
+        
+        function showSlide() {
+            slides.forEach(slide => slide.classList.remove('active'));
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        setInterval(showSlide, 5000);
+
+        // Parallax Text Effect
+        let lastScroll = 0;
+        const impactTexts = document.querySelectorAll('.impact-text');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            impactTexts.forEach(text => {
+                const section = text.closest('.impact-section');
+                if (section.classList.contains('active')) {
+                    const scrollDelta = currentScroll - lastScroll;
+                    text.style.transform = `translateY(${scrollDelta * 0.5}px)`;
+                }
+            });
+            
+            lastScroll = currentScroll;
+        });
+
+        // Reset text position when leaving section
+        window.addEventListener('scroll', () => {
+            impactTexts.forEach(text => {
+                const section = text.closest('.impact-section');
+                const bounds = section.getBoundingClientRect();
+                if (bounds.bottom < 0 || bounds.top > window.innerHeight) {
+                    text.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
+
+
+
+
+<script>
+    // Animation for cards
+    const solutionCards = document.querySelectorAll('.solution-card');
+    
+    const animateCards = () => {
+        solutionCards.forEach((card, index) => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.3;
+            
+            if (cardPosition < screenPosition) {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Set initial state for animation
+    solutionCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+    });
+    
+    window.addEventListener('load', animateCards);
+    window.addEventListener('scroll', animateCards);
+</script>
+
+
+
+
+
+
+
+
+<script>
+    // Mobile Carousel Functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.solutions-grid');
+        const cards = document.querySelectorAll('.solution-card');
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        let currentIndex = 0;
+        
+        // Only enable carousel on mobile
+        if (window.innerWidth <= 768) {
+            function updateCarousel() {
+                // Hide all cards
+                cards.forEach(card => {
+                    card.classList.remove('active');
+                    card.style.transform = 'scale(0.95)';
+                });
+                
+                // Show current card
+                cards[currentIndex].classList.add('active');
+                cards[currentIndex].style.transform = 'scale(1)';
+                
+                // Scroll to current card
+                carousel.scrollTo({
+                    left: cards[currentIndex].offsetLeft - 40, // account for padding
+                    behavior: 'smooth'
+                });
+            }
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+                updateCarousel();
+            });
+            
+            // Touch/swipe support
+            let startX;
+            carousel.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            carousel.addEventListener('touchend', (e) => {
+                const endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (diff > 50) {
+                    // Swipe left - next
+                    currentIndex = (currentIndex < cards.length - 1) ? currentIndex + 1 : 0;
+                    updateCarousel();
+                } else if (diff < -50) {
+                    // Swipe right - previous
+                    currentIndex = (currentIndex > 0) ? currentIndex - 1 : cards.length - 1;
+                    updateCarousel();
+                }
+            });
+            
+            // Initialize
+            updateCarousel();
+        } else {
+            // Hide buttons on desktop
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+        
+        // Animation for cards
+        const animateCards = () => {
+            cards.forEach((card, index) => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    if (window.innerWidth <= 768) {
+                        card.style.transform = card.classList.contains('active') ? 'scale(1)' : 'scale(0.95)';
+                    } else {
+                        card.style.transform = 'translateY(0)';
+                    }
+                }
+            });
+        };
+        
+        // Set initial state for animation
+        cards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = window.innerWidth <= 768 ? 'scale(0.95)' : 'translateY(20px)';
+            card.style.transition = `all 0.5s ease ${index * 0.1}s`;
+        });
+        
+        window.addEventListener('load', animateCards);
+        window.addEventListener('scroll', animateCards);
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                cards.forEach(card => {
+                    card.style.minWidth = '';
+                    card.style.transform = '';
+                    card.classList.remove('active');
+                });
+            } else {
+                prevBtn.style.display = 'flex';
+                nextBtn.style.display = 'flex';
+                updateCarousel();
+            }
+        });
+    });
+</script>
+<script>
+    const grid = document.querySelector('.solutions-grid');
+    const nextBtn = document.querySelector('.carousel-btn.next');
+    const prevBtn = document.querySelector('.carousel-btn.prev');
+
+    const scrollAmount = grid.offsetWidth; // scroll one full card width
+
+    nextBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!-- Green innovative section -->
+ <script>
+ function changeLayout(columnNumber) {
+  const columns = [
+    document.querySelector('.column-1'),
+    document.querySelector('.column-2'),
+    document.querySelector('.column-3')
+  ];
+  const column4 = document.querySelector('.column-4');
+  const defaultContent = document.getElementById('default-content');
+
+  const isMobile = window.innerWidth <= 768;
+
+  columns.forEach(col => {
+    col.classList.remove('active');
+    if (isMobile) {
+      col.style.height = '100px'; // reset height on mobile
+    } else {
+      col.style.width = '10%'; // reset width on desktop
+    }
+  });
+
+  if (defaultContent) defaultContent.style.display = 'none';
+  column4.innerHTML = '';
+  column4.style.width = isMobile ? '100%' : '50%';
+
+  const clicked = columns[columnNumber - 1];
+  clicked.classList.add('active');
+
+  if (isMobile) {
+    clicked.style.height = '500px'; // expanded height
+  } else {
+    clicked.style.width = '40%'; // expanded width
+  }
+
+  const images = {
+    1: 'image_file/cartoon_3.jpg',
+    2: 'image_file/farmhub_model.jpg',
+    3: 'image_file/cartoon_3.jpg'
+  };
+
+  const img = document.createElement('img');
+  img.src = images[columnNumber];
+  img.alt = "Preview";
+  column4.appendChild(img);
+}
+   // Initialize with first column active by default
+   window.onload = function() {
+            changeLayout(2);
+        };
+ </script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

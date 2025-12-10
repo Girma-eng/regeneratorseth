@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Regenerators Tech Ethiopia - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffab00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Address Section */
+        .address-section {
+            background-color: rgba(0, 100, 0, 0.8);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            height: 30px;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: rgba(128, 128, 128, 0.8);
+            position: fixed;
+            top: 50px;
+            width: 100%;
+            z-index: 1000;
+            height: 60px;
+        }
+
+        .logo {
+            display: inline-block;
+            background-color: white;
+            border-radius: 60%;
+            padding: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo img {
+            display: block;
+            width: 80px;
+            height: 70px;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .logo {
+                padding: 8px;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Desktop Navigation */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #FFA500 !important;
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+        /* Mobile Navigation */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #FFA500;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 100, 0, 0.95);
+            width: 200px;
+            padding: 15px;
+            z-index: 1001;
+        }
+
+        #mobile-menu a {
+            color: white !important;
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            #mobile-menu.active {
+                display: block;
+            }
+
+            header {
+                top: 30px;
+                height: 50px;
+            }
+
+            .slider {
+                margin-top: 80px;
+                height: calc(100vh - 80px);
+            }
+        }
+
+        /* Slider */
+        .slider {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-item {
+            height: 70vh;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .styled-text {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
+            margin: 10px 0;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 3;
+            width: 50%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 50%;
+            text-align: left;
+        }
+
+        .slide-content h2 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .highlight {
+            color: #FFD700;
+        }
+
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 2px;
+            position: relative;
+            z-index: 4;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 15%;
+            opacity: 1;
+            transition: opacity 0.3s;
+            z-index: 5;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            background-size: 60%;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                top: 60%;
+                left: 10%;
+                width: 80%;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.4rem;
+                line-height: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider,
+            .carousel-item {
+                height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.50rem;
+                margin-bottom: 15px;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.1rem;
+                line-height: 1.6rem;
+            }
+            
+            .styled-text {
+                font-size: 1rem;
+                border-width: 2px;
+                margin: 5px 0;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                margin-top: 15px;
+            }
+            
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        /* About Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        .section-content {
+            font-family: "Barlow Semi Condensed";
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .text-content p {
+            font-size: 1.2rem;
+            color: green;
+        }
+        
+        .aboutus-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .aboutus-content p {
+            font-size: 1.4rem;
+            color: green;
+        }
+        
+        .image-content {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .image-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .image-content img:hover {
+            transform: scale(1.03);
+        }
+        
+        /* Problem Section with Stats */
+        .problem-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-card h3 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stat-card p {
+            color: var(--gray);
+        }
+        
+        /* Vision/Mission Cards */
+        .vm-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .vm-card {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .vm-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--secondary);
+        }
+        
+        .vm-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .vm-card h3 {
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        /* Image Slideshow */
+        .problem-slideshow {
+            flex: 2;
+            max-width: 500px;
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .problem-slide {
+            display: none;
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+
+        .problem-slide.active {
+            display: block;
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slideshow-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .slideshow-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slideshow-dot.active {
+            background: white;
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1024px) {
+            .problem-slideshow {
+                max-width: 100%;
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .problem-slideshow {
+                height: 350px;
+            }
+        }
+
+        /* Innovative Solutions Section */
+        .innovative-solutions {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            border-radius: 12px;
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .solution-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 10px;
+            padding: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+            border-top: 25px solid green;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+        
+        .solution-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .solution-icon {
+            font-size: 2.8rem;
+            color: greenyellow;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .solution-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .solution-card p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+        
+        .solution-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        
+        .stat-badge {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: green;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-badge i {
+            font-size: 0.7rem;
+        }
+        
+        @media (max-width: 768px) {
+            .innovative-solutions {
+                padding: 50px 20px;
+                background-attachment: scroll;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .innovative-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .innovative-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .innovative-title h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .innovative-title p {
+            color: rgba(255,255,255,0.9);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .innovative-title .divider {
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+
+        /* NEW: RegeneratorsTech Suite Platform Cards */
+        .platform-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 60px 0;
+        }
+        
+        .platform-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .platform-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+        }
+        
+        .platform-card.l2mfarm {
+            border-top-color: #4CAF50;
+        }
+        
+        .platform-card.l2mtracking {
+            border-top-color: #2196F3;
+        }
+        
+        .platform-card.l2mlink {
+            border-top-color: #FF9800;
+        }
+        
+        .platform-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .platform-card.l2mfarm .platform-icon {
+            color: #4CAF50;
+        }
+        
+        .platform-card.l2mtracking .platform-icon {
+            color: #2196F3;
+        }
+        
+        .platform-card.l2mlink .platform-icon {
+            color: #FF9800;
+        }
+        
+        .coming-soon-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #FF9800;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .platform-features {
+            margin-top: 20px;
+            list-style: none;
+            text-align: left;
+        }
+        
+        .platform-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .platform-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .platform-features i {
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .suite-highlight {
+            background: linear-gradient(135deg, #2e7d32 0%, #4CAF50 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 12px;
+            margin: 60px 0;
+        }
+        
+        .suite-highlight h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .suite-highlight p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .platform-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .suite-highlight {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+            
+            .suite-highlight h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* What We Do Section */
+        .section-whatwedo {
+            padding: 80px 20px;
+            max-width: 1700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid var(--light);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .member-info h3 {
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+        
+        .member-info p {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 50px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 60px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .vm-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="address-section">
+        <p> 📞 +251 911112602 | ✉️ contact@regenerators-tech.et | </p>
+    </section>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="image_file/logo_1.jpg" alt="Regenerators Tech Ethiopia Logo">
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+            <a href="digital_platform.html">Digital Platform</a>
+            <a href="contact.html">Contact us</a>
+        </nav>
+       
+        <!-- Mobile Navigation -->
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+        <a href="digital_platform.html">Digital Platform</a>
+            <a href="contact.html">Contact us</a>
+        </div>
+    </header>
+
+    <!-- Hero Slider -->
+    <div class="slider">
+        <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <img src="image_file/wheat_field_2.jpg" class="d-block w-100" alt="About Regenerators Tech Ethiopia">
+                    <div class="hero">
+                        <h1>About Regenerators Tech Ethiopia</h1>
+                        <h2>Empowering Ethiopian Farmers With <span class="highlight">Integrated Digital & Mechanized Solutions</span></h2>
+                        <a href="#platforms" class="cta-button">Explore Our Platform Suite</a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="image_file/super_seeder.jpg" class="d-block w-100" alt="RegeneratorsTech Suite">
+                    <div class="slide-content">
+                        <p class="styled-text">Our Integrated Platform Suite</p>
+                        <h2>L²MFarm, L²MTracking & L²MLink: A complete ecosystem for modern agricultural management</h2>
+                        <a href="#platforms" class="cta-button">Discover Our Platforms</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="image_file/digital_soln.jpg" class="d-block w-100" alt="Digital Solutions">
+                    <div class="slide-content">
+                        <p class="styled-text">Digital Transformation</p>
+                        <h2>Bridging the gap between traditional farming and digital innovation for smarter agriculture</h2>
+                        <a href="#solutions" class="cta-button">Learn About Our Solutions</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Who We Are Section -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Who We Are</h2>
+        </div>
+        <div class="section-content">
+            <div class="aboutus-content animate-on-scroll">
+                <p><strong>Regenerators Tech Ethiopia</strong> is an innovative AgTech startup founded in 2023 to tackle Ethiopia's dual agricultural crisis: limited mechanization access and fragmented digital infrastructure. Under the leadership of Dr. Girma Moges, we combine deep agricultural expertise with cutting-edge technology to build practical, scalable solutions.</p>
+                <p>We are more than a service provider; we are <strong>ecosystem builders</strong>. Through our integrated <strong>RegeneratorsTech Suite</strong>—comprising L²MFarm (farm management), L²MTracking (asset monitoring), and L²MLink (marketplace)—we create digital bridges that connect farmers to machinery, markets, and finance. By fostering collaboration and knowledge sharing, we aim to create a future where Ethiopian agriculture thrives through efficiency, transparency, and sustainable prosperity.</p>
+            </div>
+            <div class="image-content animate-on-scroll">
+                <img src="image_file/farm_hub_equip.jpg" alt="Regenerators Tech Ethiopia Team">
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Our Platform Suite Section -->
+    <section id="platforms" class="section" style="background-color: #f9f9f9;">
+        <div class="section-title">
+            <h2>Our Integrated Platform Suite</h2>
+            <p>Three specialized digital solutions working together to transform agricultural management</p>
+        </div>
+        
+        <div class="platform-cards">
+            <!-- L²MFarm Card -->
+            <div class="platform-card l2mfarm animate-on-scroll">
+                <div class="platform-icon">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <h3>L²MFarm</h3>
+                <p><strong>Complete Farm Management Platform</strong></p>
+                <p>Digitize and optimize every aspect of farm operations with our comprehensive management tool designed for medium and large farms.</p>
+                
+                <ul class="platform-features">
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Field & Crop Management</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Machinery & Equipment Tracking</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Task Scheduling & Labor Management</li>
+                    <li><i class="fas fa-check" style="color: #4CAF50;"></i> Financial Analytics & Reporting</li>
+                </ul>
+            </div>
+            
+            <!-- L²MTracking Card -->
+            <div class="platform-card l2mtracking animate-on-scroll">
+                <div class="platform-icon">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+                <h3>L²MTracking</h3>
+                <p><strong>Real-Time Asset Monitoring System</strong></p>
+                <p>Monitor machinery location, track utilization, and optimize your equipment fleet with GPS-enabled tracking for service providers and cooperatives.</p>
+                
+                <ul class="platform-features">
+                    <li><i class="fas fa-check" style="color: #2196F3;"></i> Live GPS Location Tracking</li>
+                    <li><i class="fas fa-check" style="color: #2196F3;"></i> Utilization & Efficiency Analytics</li>
+                    <li><i class="fas fa-check" style="color: #2196F3;"></i> Maintenance Scheduling Alerts</li>
+                    <li><i class="fas fa-check" style="color: #2196F3;"></i> Geofencing & Security Features</li>
+                </ul>
+            </div>
+            
+            <!-- L²MLink Card -->
+            <div class="platform-card l2mlink animate-on-scroll">
+                <div class="platform-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <span class="coming-soon-badge">Coming Soon</span>
+                <h3>L²MLink</h3>
+                <p><strong>Agricultural Service & Marketplace Platform</strong></p>
+                <p>Connect farmers with machinery services, input suppliers, and produce buyers through our integrated marketplace platform.</p>
+                
+                <ul class="platform-features">
+                    <li><i class="fas fa-check" style="color: #FF9800;"></i> Service Booking & Marketplace</li>
+                    <li><i class="fas fa-check" style="color: #FF9800;"></i> Input Procurement & Delivery</li>
+                    <li><i class="fas fa-check" style="color: #FF9800;"></i> Produce Sales & Market Access</li>
+                    <li><i class="fas fa-check" style="color: #FF9800;"></i> Digital Payments & Finance</li>
+                </ul>
+                
+                <p style="margin-top: 15px; font-style: italic; color: #666;">
+                    <i class="fas fa-lightbulb" style="color: #FF9800; margin-right: 5px;"></i>
+                    <strong>Concept finalized & layout complete</strong> - Currently in development
+                </p>
+            </div>
+        </div>
+        
+        <div class="suite-highlight animate-on-scroll">
+            <h2>Integrated Power, Unified Impact</h2>
+            <p>
+                While each platform delivers standalone value, their true transformative power emerges when used together. 
+                Data from L²MFarm informs machinery needs, L²MTracking ensures efficient service delivery, 
+                and L²MLink connects the entire ecosystem. This integrated approach creates a seamless agricultural value chain 
+                that drives efficiency, transparency, and profitability across Ethiopian agriculture.
+            </p>
+        </div>
+    </section>
+
+    <!-- The Problem We Are Solving -->
+    <section class="section" style="background-color: #f9f9f9;">
+        <div class="section-title">
+            <h2>The Problem We Are Solving</h2>
+        </div>
+        <div class="section-content">
+            <div class="text-content animate-on-scroll">
+                <p>Ethiopia's agricultural sector faces a dual crisis that our RegeneratorsTech Suite directly addresses:</p>
+                <ul>
+                    <li><strong>Mechanization Access Gap:</strong> Over 85% of smallholders lack reliable access to affordable machinery, relying on inefficient broker systems that charge 200-300% premiums.</li>
+                    <li><strong>Digital Disconnect:</strong> Farm management remains manual and fragmented, with no integrated digital tools for planning, tracking, or analytics.</li>
+                    <li><strong>Asset Inefficiency:</strong> Commercial farms suffer from 40-60% machinery idle time with no digital management tools.</li>
+                    <li><strong>Market Fragmentation:</strong> Farmers lack transparent access to services, inputs, and fair markets.</li>
+                </ul>
+                <p>This perfect storm of challenges keeps productivity 30-50% below potential while threatening national food security goals.</p>
+            </div>
+            
+            <div class="problem-slideshow animate-on-scroll">
+                <img src="image_file/gaps_cap.jpg" alt="Agricultural challenges in Ethiopia" class="problem-slide active">
+                <img src="image_file/farmer_2.jpg" alt="Farm equipment shortage" class="problem-slide">
+                <img src="image_file/woman_farmer_3.jpg" alt="Digital divide in agriculture" class="problem-slide">
+                
+                <div class="slideshow-controls">
+                    <div class="slideshow-dot active" data-index="0"></div>
+                    <div class="slideshow-dot" data-index="1"></div>
+                    <div class="slideshow-dot" data-index="2"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="problem-stats">
+            <div class="stat-card animate-on-scroll">
+                <h3>85%</h3>
+                <p>Smallholders lack machinery access</p>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <h3>40-60%</h3>
+                <p>Machinery idle time on commercial farms</p>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <h3>200-300%</h3>
+                <p>Broker premiums over actual costs</p>
+            </div>
+            <div class="stat-card animate-on-scroll">
+                <h3>₵15-20B</h3>
+                <p>Annual lost agricultural output</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Our Vision & Mission</h2>
+        </div>
+        <div class="vm-cards">
+            <div class="vm-card animate-on-scroll">
+                <h3>Our Vision</h3>
+                <p>To become the foundational digital operating system for Ethiopian agriculture—a trusted platform where planning, finance, production, and trade connect seamlessly, driving a new era of efficiency, transparency, and sustainable wealth creation.</p>
+            </div>
+            <div class="vm-card animate-on-scroll">
+                <h3>Our Mission</h3>
+                <p>To solve Ethiopia's mechanization crisis by building the digital bridges that connect farmers to affordable machinery, transparent markets, and fair finance through our integrated RegeneratorsTech Suite.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovative Solutions Section -->
+    <section id="solutions" class="innovative-container">
+        <section class="innovative-solutions">
+            <div class="innovative-title">
+                <h2>Our Innovative Approach</h2>
+                <div class="divider"></div>
+                <p>Discover how we're transforming Ethiopian agriculture through integrated technology and farmer-centric systems</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Integrated Digital Ecosystem</h3>
+                    <p>Our RegeneratorsTech Suite creates a seamless digital infrastructure that connects farm management (L²MFarm), asset tracking (L²MTracking), and service marketplace (L²MLink). This interconnected system bridges critical gaps in the agricultural value chain, ensuring data flows efficiently from planning to execution to market.</p>
+                    <div class="solution-stats">
+                        <span class="stat-badge">
+                            <i class="fas fa-arrow-up"></i> 73% faster service delivery
+                        </span>
+                        <span class="stat-badge">
+                            <i class="fas fa-users"></i> 50+ early adopters
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-icon">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <h3>Dual-Sided Marketplace Model</h3>
+                    <p>We connect smallholder farmers with service providers and commercial farms through L²MLink, creating a transparent, efficient marketplace that eliminates broker monopolies. Our platform enables pay-per-use mechanization, input credit via digitized Ekub groups, and aggregated produce sales.</p>
+                    <div class="solution-stats">
+                        <span class="stat-badge">
+                            <i class="fas fa-clock"></i> 60% time saved
+                        </span>
+                        <span class="stat-badge">
+                            <i class="fas fa-money-bill-wave"></i> 70% cost reduction vs brokers
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="solution-card animate-on-scroll">
+                    <div class="solution-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>From Farm Data to Financial Inclusion</h3>
+                    <p>We transform farm operational data from L²MFarm and asset data from L²MTracking into verifiable financial records. This creates credit histories for farmers and enables partnerships with financial institutions for input credit, equipment financing, and index-based insurance products.</p>
+                    <div class="solution-stats">
+                        <span class="stat-badge">
+                            <i class="fas fa-percentage"></i> 40% yield increase
+                        </span>
+                        <span class="stat-badge">
+                            <i class="fas fa-leaf"></i> Financial inclusion pathway
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- What We Do -->
+    <section class="section-whatwedo" style="background-color: #f9f9f9;">
+        <div class="section-title">
+            <h2>Our Core Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/farm_hub_equip.jpg" alt="Digital Farm Management">
+                </div>
+                <div class="service-content">
+                    <h3>Digital Farm Management (L²MFarm)</h3>
+                    <p>Comprehensive farm planning, machinery management, and financial analytics for medium and large farms.</p>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/digital_soln.jpg" alt="Asset Tracking">
+                </div>
+                <div class="service-content">
+                    <h3>Asset Tracking & Monitoring (L²MTracking)</h3>
+                    <p>Real-time GPS tracking for machinery and trucks, utilization analytics, and fleet management for service providers.</p>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/seed_fert.jpg" alt="Marketplace Services">
+                </div>
+                <div class="service-content">
+                    <h3>Marketplace & Service Platform (L²MLink)</h3>
+                    <p>Connecting farmers with mechanization services, quality inputs, and fair markets through our digital marketplace.</p>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/advisory.jpg" alt="Advisory & Integration">
+                </div>
+                <div class="service-content">
+                    <h3>Advisory & System Integration</h3>
+                    <p>Expert guidance on platform adoption, data analytics, and integrating digital tools into farm operations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team -->
+    <section class="section">
+        <div class="section-title">
+            <h2>Our Leadership Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="image_file/girma.jpg" alt="Dr. Girma Moges">
+                </div>
+                <div class="member-info">
+                    <h3>Dr. Girma Moges</h3>
+                    <p>Founder & CEO</p>
+                    <p>PhD in Agricultural Mechanization, 20+ years experience in agricultural systems and digital transformation.</p>
+                </div>
+            </div>
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="image_file/alemayhu.jpg" alt="Alemayhu Girma">
+                </div>
+                <div class="member-info">
+                    <h3>Alemayhu Girma</h3>
+                    <p>Field Operations Director</p>
+                    <p>MSc in Agricultural Mechanization, expertise in farm machinery management and service delivery.</p>
+                </div>
+            </div>
+            <div class="team-member animate-on-scroll">
+                <div class="member-photo">
+                    <img src="image_file/Nitsuh.jpg" alt="Nitsuh Girma">
+                </div>
+                <div class="member-info">
+                    <h3>Nitsuh Girma</h3>
+                    <p>Finance & Strategy Director</p>
+                    <p>BA in Accounting, specialized in AgTech business models and financial sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="cta-section">
+        <h2 class="animate-on-scroll">Join Us in Digitally Transforming Ethiopian Agriculture</h2>
+        <p class="animate-on-scroll">Regenerators Tech Ethiopia is at the forefront of agricultural digital transformation. We're creating opportunities for farmers, service providers, investors, and technology partners to participate in building a more efficient, transparent, and profitable agricultural ecosystem through our integrated platform suite.</p>
+        <a href="contact.html" class="cta-button animate-on-scroll">Get in Touch</a>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#mobile-menu') && !e.target.closest('.hamburger')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        window.addEventListener('scroll', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Slideshow functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.problem-slide');
+            const dots = document.querySelectorAll('.slideshow-dot');
+            let currentSlide = 0;
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                slides[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentSlide = index;
+            }
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    showSlide(parseInt(this.getAttribute('data-index')));
+                });
+            });
+            
+            setInterval(() => {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 5000);
+            
+            // Scroll animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animateElements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
