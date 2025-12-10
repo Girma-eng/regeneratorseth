@@ -1339,6 +1339,267 @@
                 font-size: 1.8rem;
             }
         }
+
+
+
+        
+/*<!--===// CSS: Footer
+	==============================================================================-->*/
+/* CTA Section */
+:root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffab00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+        }
+
+        .cta-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('image_file/landscape_2.jpg');
+            color: #fff;
+            padding: 30px 0 0;
+            font-family: 'Open Sans', sans-serif;
+            position: relative;
+            
+        }
+
+        .cta-section a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cta-section a:hover {
+            color: #8bc34a;
+        }
+
+        .cta-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 15px;
+            font-family: "Barlow Semi Condensed";
+        }
+
+        .footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .footer-column {
+            padding: 0 30px;
+            box-sizing: border-box;
+            position: relative;
+            
+        }
+
+        /*  column widths */
+        .footer-column:nth-child(1) {
+            width: 25%;
+        }
+        .footer-column:nth-child(2) {
+            width: 50%;
+            border-left: 1px solid rgba(26, 149, 92, 0.6);
+            border-right: 1px solid rgba(27, 149, 92, 0.6);
+            margin-top: 50px;
+            
+        }
+        .footer-column:nth-child(3) {
+            width: 25%;
+        }
+
+        /* Logo Section */
+        .footer-logo {
+            margin-bottom: 20px;
+           
+            padding: 15px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .footer-logo img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+           
+            font-weight: 600;
+            text-align: center;
+            align-items: center;  
+        }
+    
+
+        .footer-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+
+        }
+
+        /* Contact Info Section */
+        .footer-contact-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .footer-contact-icon {
+            margin-right: 15px;
+        }
+
+        .footer-contact-icon span {
+            font-size: 24px;
+            color: #8bc34a;
+        }
+
+        .footer-contact-title {
+            font-size: 1.1rem;
+            margin: 0 0 5px 0;
+            color: var(--accent);
+        }
+
+        .footer-contact-details {
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        /* Links Section */
+        .cta-links {
+            margin-bottom: 30px;
+            
+        }
+
+        .cta-links h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .cta-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cta-links li {
+            margin-bottom: 10px;
+        }
+
+        /* Social Media Icons */
+        .footer-social-links {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .footer-social-icon i {
+                font-size: 20px;
+                color: white;
+                background-color: #3b5998; /* adjust per platform */
+                border-radius: 50%;
+                padding: 10px;
+                transition: background-color 0.3s ease;
+            }
+
+            .footer-social-icon:hover i {
+                background-color: #1d3a7b;
+            }
+
+        .footer-social-icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            text-align: center;
+            line-height: 40px;
+            transition: background-color 0.3s ease;
+        }
+
+        .footer-social-icon:hover {
+            background-color: #8bc34a;
+        }
+
+        /* Copyright Section */
+        .footer-copyright-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+        }
+
+        .footer-copyright a {
+            color: #8bc34a;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 980px) {
+            .footer-column {
+                width: 100% !important;
+                padding: 0 15px;
+                margin-bottom: 30px;
+            }
+            
+            .footer-column:nth-child(2) {
+                border-left: none;
+                border-right: none;
+                border-top: none;
+               border-bottom: 1px solid rgba(27, 149, 92, 0.6);
+                padding-top: 5px;
+                padding-bottom: 10px;
+            }
+            .footer-column:nth-child(1) {
+                border-left: none;
+                border-right: none;
+                border-top: none;
+               border-bottom: 1px solid rgba(27, 149, 92, 0.6);
+                padding-top: 5px;
+                padding-bottom: 10px;
+            }
+        }
+     
+        @media (max-width: 768px) {
+            .footer-heading {
+            font-size: 20px;
+           
+            align-items: center;  
+        }
+    
+
+        .footer-description {
+            font-size: 1.0rem;
+           
+           
+
+        }
+            .footer-row {
+                margin-bottom: 20px;
+            }
+            
+            .footer-logo {
+                max-width: 200px;
+            }
+
+            
+        }
+    /* Mobile Reorder (50%-25%-25%) */
+    @media (max-width: 768px) {
+            .footer-column:nth-child(1) { order: 2; flex: 0 0 100%; }
+            .footer-column:nth-child(2) { order: 1; flex: 0 0 100%; }
+            .footer-column:nth-child(3) { order: 3; flex: 0 0 100%; }
+        }
     </style>
 </head>
 <body>
@@ -1347,6 +1608,8 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
+                      <img src="image_file/logo_regenerators.jpg" alt="Regenerators Ethiopia Logo" />
+                     <!-- 
                     <h1>
                         <span style="font-size: 45px; color: orange; letter-spacing: -5px;">L</span>
                         <span style="font-size: 45px; color: orange; letter-spacing: -1px;">²</span>
@@ -1354,6 +1617,7 @@
                         <span style="font-size: 45px; color: green; letter-spacing: -1px;">F</span>
                         <span style="font-size: 45px; color: green; letter-spacing: -2px;">arm</span>
                     </h1>
+                    -->  
                 </div>
                 
                 <div class="menu-toggle" id="menuToggle">
@@ -1581,15 +1845,14 @@
     </section>
 
     <!-- Features Section - Updated Context -->
-    <section class="section" id="features">
+ <section class="section" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>L²MFarm: Comprehensive Farm Management</h2>
-                <p>As part of the RegeneratorsTech Suite, L²MFarm provides everything you need to manage your farm efficiently and profitably</p>
+                <h2>Our Integrated Modules</h2>
+                <p>L²MFarm provides everything you need to manage your farm efficiently and profitably</p>
             </div>
             
             <div class="features-grid">
-                <!-- Your existing feature cards remain the same -->
                 <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
                     <div class="feature-icon">
                         <i class="fas fa-map-marked-alt"></i>
@@ -1604,69 +1867,514 @@
                     </div>
                 </div>
                 
-                <!-- ... [All your other existing feature cards remain exactly as they are] ... -->
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Machinery Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Track and manage farm equipment
+                        </p>
+                    </div>
+                </div>
                 
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-clipboard-list fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Activity & Task Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Schedule and assign tasks, track progress, and ensure nothing falls through the cracks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-boxes fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Input & Inventory Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Track seeds, fertilizers, and pesticide usage
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-seedling fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Precision Agriculture
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Our field mapping tools help you optimize land usage and track crop performance across all your fields.
+                        </p>
+                    </div>
+                </div>
+            
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Financial Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Track expenses, revenue, and calculate profitability by field, crop, or season.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-users fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Labor Management
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Manage worker profiles, track hours, and indicate performances.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="feature-card" style="display: flex; align-items: flex-start; gap: 16px;">
+                    <div class="feature-icon">
+                        <i class="fas fa-truck-loading fa-1x"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3 style="margin: 0; font-size: 1.4em; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 4px;">
+                            Harvest & Sales Tracking
+                        </h3>
+                        <p style="margin-top: 8px; color: #555;">
+                            Log harvest data and income data by field and crop
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- The rest of your existing sections remain exactly the same -->
-    <!-- ... [Benefits Section, App Screens Section, CTA, Footer] ... -->
-
-    <!-- Updated Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <div class="logo">
-                        <img src="image_file/l2m_farm_1.jpg" alt="RegeneratorsTech Suite Logo" class="logo-footer-img">
-                    </div>
-                    <p>Part of the RegeneratorsTech Suite - Integrated agricultural solutions for modern farming in Ethiopia.</p>
-                    <div class="platform-links" style="margin-top: 15px;">
-                        <a href="#" style="display: inline-block; margin-right: 10px; color: #4CAF50;"><strong>L²MFarm</strong></a>
-                        <a href="#" style="display: inline-block; margin-right: 10px; color: #2196F3;"><strong>L²MTracking</strong></a>
-                        <a href="#" style="display: inline-block; color: #FF9800;"><strong>L²MLink</strong> <small>(Coming Soon)</small></a>
-                    </div>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+<!-- Innovative Solutions Section -->
+    <section class="innovative-container">
+        <section class="innovative-solutions">
+            <div class="innovative-title">
+                <h2>Benefits</h2>
+                <div class="divider"></div>
+                <p>Discover how we're benefiting in transforming Ethiopian agriculture through integrated technology and farmer-centric solutions</p>
+            </div>
+            
+  <div class="solutions-grid">
+            <!-- Card 1 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-store-alt"></i>
                 </div>
-                <div class="footer-column">
-                    <h3>Our Platforms</h3>
-                    <ul>
-                        <li><a href="#">L²MFarm (Farm Management)</a></li>
-                        <li><a href="#">L²MTracking (Asset Tracking)</a></li>
-                        <li><a href="#">L²MLink (Coming Soon)</a></li>
-                        <li><a href="#">Suite Integration</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Community</a></li>
-                        <li><a href="#">Events</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
-                        <li><a href="#">About RegeneratorsTech</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Partners</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
+                <h3 style="font-size: 1.1rem;">Improved Operational Efficiency</h3>
+                <p style="font-size: 0.9rem;">
+                    The app enables farmers to schedule, assign, and track all farming tasks—from land preparation to harvesting—using real-time data. This reduces time wastage, minimizes human error, and ensures that machinery, labor, and inputs are optimally utilized.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-clock"></i> 25% less downtime
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-money-bill-wave"></i> 18% cost savings
+                    </span>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2024 RegeneratorsTech Suite. All rights reserved. L²MFarm, L²MTracking, and L²MLink are products of Regenerators Tech Ethiopia.</p>
+            
+            <!-- Card 2 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Data-Driven Decision Making</h3>
+                <p style="font-size: 0.9rem;">
+                    Comprehensive data collection and reporting allow users to analyze trends in fuel consumption, labor use, and machine performance. This promotes informed decision-making for both short-term management and long-term strategic planning.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-percentage"></i> 30% more accurate planning
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-leaf"></i> 15% input use reduction
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+          <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-store-alt"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">  Real-Time Field Insights</h3>
+                <p style="font-size: 0.9rem;">
+      
+                    Make fact-based decisions based on real-time insights into weather conditions, pest risk and crop health by field. Analyze satellite data and operations management data by field.
+                        </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-clock"></i> 25% less downtime
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-money-bill-wave"></i> 18% cost savings
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Card 4 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Enhanced Decision Support and Planning</h3>
+                <p style="font-size: 0.9rem;">
+                    The app features analytical tools for tractor–implement matching, economically optimal tractor size selection, replacement strategy, and break-even analysis. 
+                    These modules enable users to identify the most efficient machinery combinations, reduce equipment costs, and make evidence-based investment decisions.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-arrow-up"></i> 20% higher equipment utilization
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-money-bill-wave"></i> 12% lower maintenance cost
+                    </span>
+                </div>
             </div>
         </div>
-    </footer>
+        
+        <div class="solutions-grid">
+            <!-- Card 5 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Cost Optimization and Financial Transparency</h3>
+                <p style="font-size: 0.9rem;">
+                    Integrated modules calculate production costs per crop, field, or operation, distinguishing between fixed and variable costs. The inclusion of break-even analysis helps farmers determine profitability thresholds and make sound marketing and budgeting decisions.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-chart-line"></i> 28% improved cost tracking
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-money-bill-wave"></i> 20% higher profit margin
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Card 6 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Sustainable Resource Utilization</h3>
+                <p style="font-size: 0.9rem;">
+                    By monitoring machine hours, fuel, and input usage, the app supports efficient resource management, reduces waste, and promotes environmentally friendly practices aligned with sustainable agricultural development goals.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-percentage"></i> 18% fuel savings
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-leaf"></i> 25% lower carbon footprint
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Card 7 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Strengthened Accountability and Record Keeping</h3>
+                <p style="font-size: 0.9rem;">
+                    The app ensures accurate recording of all field activities, equipment usage, and operator performance, improving transparency and traceability across all farm operations.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-arrow-up"></i> 100% traceability
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-users"></i> 40% faster report generation
+                    </span>
+                </div>
+            </div>
+            
+            <!-- Card 8 -->
+            <div class="solution-card">
+                <div class="solution-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 style="font-size: 1.1rem;">Contribution to Digital and Smart Agriculture</h3>
+                <p style="font-size: 0.9rem;">
+                    By combining monitoring, analytics, and decision support features, the app accelerates the adoption of precision agriculture and digital transformation in farming systems—laying the groundwork for smarter, data-driven, and sustainable food production.
+                </p>
+                <div class="solution-stats">
+                    <span class="stat-badge">
+                        <i class="fas fa-arrow-up"></i> 35% faster digital adoption
+                    </span>
+                    <span class="stat-badge">
+                        <i class="fas fa-users"></i> 50+ farmers onboarded
+                    </span>
+                </div>
+            </div>
+        </div>
+
+       
+
+          
+            
+         
+    </section>
+</section>
+
+    <!-- Intuitive App Experience -->
+    <section class="app-screens-section" id="app-screens">
+        <div class="container">
+            <div class="section-title">
+                <h2>Intuitive App Experience</h2>
+                <p>Discover how L²MFarm makes farm management simple and efficient</p>
+            </div>
+            
+            <div class="app-slider-container-2">
+                <div class="app-slider-content">
+                 
+                       <div class="app-slide-2" id="app-slide-3-2">
+                        <h2 style="font-size: 1.4rem;">Comprehensive Dashboard</h2>
+                        <p>Get a complete overview of your farm's performance with our powerful dashboard. Monitor key metrics and make data-driven decisions.</p>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Real-time performance metrics</li>
+                            <li><i class="fas fa-check-circle"></i> Financial overview and projections</li>
+                            <li><i class="fas fa-check-circle"></i> Weather and market insights</li>
+                            <li><i class="fas fa-check-circle"></i> Customizable widgets</li>
+                        </ul>
+                        
+                      
+                    </div>
+                    
+
+                    <div class="app-slide-2" id="app-slide-2-2">
+                        <h2 style="font-size: 1.4rem;">Smart Task & Field Planning</h2>
+                        <p>Plan your planting seasons, crop rotations, and field activities with our advanced planning tools. Visualize your entire operation at a glance.</p>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Plan and associate with tasks</li>
+                            <li><i class="fas fa-check-circle"></i> Drag-and-drop planning</li>
+                            <li><i class="fas fa-check-circle"></i> Resource allocation planning</li>
+                            <li><i class="fas fa-check-circle"></i> Weather integration for optimal timing</li>
+                         
+                        </ul>
+                        
+                       
+                    </div>
+
+
+                       <div class="app-slide-2 active" id="app-slide-1-2">
+                        <h2 style="font-size: 1.4rem;">Task Management Made Simple</h2>
+                        <p>Easily assign, track, and manage farm tasks with our intuitive interface. Keep your entire team on the same page with real-time updates and notifications.</p>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Create and assign tasks in seconds</li>
+                            <li><i class="fas fa-check-circle"></i> Set priorities and deadlines</li>
+                            <li><i class="fas fa-check-circle"></i> Track progress with visual indicators</li>
+                            <li><i class="fas fa-check-circle"></i> Receive notifications for completed tasks</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                    
+                
+                           <div class="app-slide-2 active" id="app-slide-1-2">
+                        <h2 style="font-size: 1.4rem;">Accounting</h2>
+                        <p>??????.</p>
+                        
+                        <ul class="feature-list">
+                            
+                            <li><i class="fas fa-check-circle"></i> ????</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary">Learn More</button>
+                    </div>
+                    
+
+                 
+                    <div class="app-slide-2" id="app-slide-4-2">
+                        <h2 style="font-size: 1.4rem;">Usage Inventory</h2>
+                        <p>Keep track of machinery fuel, oil, seeds, fertilizers and pesticide with our comprehensive inventory system. Never run out of essential items again.</p>
+                        
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Real-time inventory tracking</li>
+                            <li><i class="fas fa-check-circle"></i> Automated reorder alerts</li>
+                            <li><i class="fas fa-check-circle"></i> Supplier management</li>
+                            <li><i class="fas fa-check-circle"></i> Cost analysis and optimization</li>
+                        </ul>
+                        
+                        <button class="btn btn-primary">Try It Now</button>
+                    </div>
+                    
+                    <div class="app-slider-nav">
+                        <div class="app-slider-dot-2 active" data-slide="0"></div>
+                        <div class="app-slider-dot-2" data-slide="1"></div>
+                        <div class="app-slider-dot-2" data-slide="2"></div>
+                        <div class="app-slider-dot-2" data-slide="3"></div>
+                          <div class="app-slider-dot-2" data-slide="4"></div>
+                    </div>
+                    
+                    <div class="app-slider-arrows-2">
+                        <div class="app-slider-arrow-2 prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </div>
+                        <div class="app-slider-arrow-2 next">
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="app-slider-visual">
+                    <div class="app-phone-mockup">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="L²MFarm App - Task Management" class="app-screen" id="app-screen-img-1">
+                    </div>
+                    <div class="app-phone-mockup_2">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="L²MFarm App - Dashboard" class="app-screen_2" id="app-screen-img-2">
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- CTA -->
+
+        <section class="cta">
+        <div class="container">
+            <h2>Ready to Transform Your Farm Management?</h2>
+            <p>Join us to use L²MFarm to increase efficiency, reduce costs, and maximize profits.</p>
+            <button class="btn btn-primary" style="background: white; color: var(--primary);">Start Your Free Trial</button>
+        </div>
+    </section>
+
+
+    <footer class="cta-section">
+    <div class="cta-container">
+        <div class="footer-row">
+            <!-- First Column: Logo and Contact Info (25%) -->
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <img src="image_file/logo_regenerators.jpg" alt="Regenerators Ethiopia Logo" />
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>📍</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Address</h4>
+                        <div class="footer-contact-details">
+                            Addis Ababa, Ethiopia<br />
+                            Hawassa: HU IoT Campus
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>✉️</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Email</h4>
+                        <div class="footer-contact-details">
+                            <a href="mailto:girma.moges@regenerators.net" style="font-weight: bold; color: yellowgreen;">
+                                girma.moges@regenerators.net
+                              </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <div class="footer-contact-icon">
+                        <span>📞</span>
+                    </div>
+                    <div>
+                        <h4 class="footer-contact-title">Phone</h4>
+                        <div class="footer-contact-details">+251 911112602</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Second Column: Contact Info (50%) -->
+            <div class="footer-column">
+                <h2 class="footer-heading"> Join Us in Transforming Ethiopian Agriculture</h2>
+                <div class="footer-description">
+                    Regenerators Ethiopia is scaling rapidly. From a successful pilot to a full expansion and franchise model by 2028, we're creating opportunities for entrepreneurs, investors, researchers, and farmers to participate in building a regenerative, equitable food system.
+                    
+                </div>
+                <div class="footer-description">
+                    <a href="contact.html" class="cta-button animate-on-scroll">Get in Touch</a>
+                </div>
+            </div>
+           
+            <!-- Third Column: Links and Social (25%) -->
+                
+            <div class="footer-column">
+                <div class="cta-links">
+                    <h3>Our Platforms</h3>
+                  <ul>
+                    <li><a href="#" style="display: inline-block; margin-right: 10px; color: #4CAF50;"><strong>L²MFarm</strong></a></li>
+                        <li><a href="#" style="display: inline-block; margin-right: 10px; color: #2196F3;"><strong>L²MTracking</strong></a></li>
+                        <li><a href="#" style="display: inline-block; color: #FF9800;"><strong>L²MLink</strong> <small>(Coming Soon)</small></a></li>
+                  <li><a href="#" style="display: inline-block; margin-right: 10px; color: #2196F3;"><strong>Suite Integration</strong></a></li>
+                      
+                    
+                    </ul>
+                </div>
+                
+                <ul class="footer-social-links">
+                    <li class="footer-social-item">
+                        <a href="https://www.facebook.com/" class="footer-social-icon" title="Facebook" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="https://t.me/" class="footer-social-icon" title="Telegram" target="_blank">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                    </li>
+                    <li class="footer-social-item">
+                        <a href="https://linkedin.com/" class="footer-social-icon" title="LinkedIn" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Copyright Row -->
+        <div class="footer-row footer-copyright-row">
+            <div class="footer-column">
+                <div class="footer-copyright">
+                   © 2024 RegeneratorsTech Suite. All rights reserved. L²MFarm, L²MTracking, and L²MLink are products of Regenerators Tech Ethiopia.
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+   
+
+
 
 
     <script>
