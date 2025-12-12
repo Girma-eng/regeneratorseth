@@ -54,10 +54,10 @@
             padding: 15px 5%;
             background-color: rgba(128, 128, 128, 0.8);
             position: fixed;
-            top: 50px;
+            top: 35px;
             width: 100%;
             z-index: 1000;
-            height: 60px;
+            height: 70px;
         }
 
         .logo {
@@ -70,8 +70,8 @@
 
         .logo img {
             display: block;
-            width: 80px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
         }
 
         /* Mobile Styles */
@@ -197,13 +197,13 @@
         .styled-text {
             background-color: black;
             color: white;
-            padding: 5px 10px;
+            padding: 5px 5px;
             text-align: center;
             border-top: 3px solid red;
             border-bottom: 3px solid red;
             margin: 10px 0;
             display: inline-block;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -211,7 +211,7 @@
 
         .hero {
             position: absolute;
-            top: 50%;
+            top: 60%;
             left: 10%;
             transform: translateY(-50%);
             color: white;
@@ -222,12 +222,22 @@
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: 4.1rem;
             margin-bottom: 20px;
             font-family: "Barlow Semi Condensed", sans-serif;
             max-width: 95%;
             line-height: 1.1;
             font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
@@ -240,40 +250,23 @@
             z-index: 2;
             width: 50%;
             text-align: left;
+              font-family: "Barlow Semi Condensed", sans-serif;
         }
 
         .slide-content h2 {
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 1.3rem;
+            line-height: 1.6rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+              font-family: "Barlow Semi Condensed", sans-serif;
         }
 
         .highlight {
             color: #FFD700;
         }
 
-        .cta-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 2px;
-            position: relative;
-            z-index: 4;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #3e8e41;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
+      
 
         .carousel-control-prev,
         .carousel-control-next {
@@ -300,12 +293,21 @@
             }
             
             .hero h1 {
-                font-size: 3rem;
+                font-size: 1.6rem;
             }
-            
+                .slide-content {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 80%;
+            text-align: left;
+        }
             .slide-content h2 {
-                font-size: 1.4rem;
-                line-height: 1.6rem;
+                font-size: 1.2rem;
+                line-height: 1.5rem;
             }
         }
 
@@ -325,11 +327,12 @@
                 line-height: 1.6rem;
             }
             
-            .styled-text {
-                font-size: 1rem;
+           .styled-text {
+                font-size: 0.9rem;
                 border-width: 2px;
                 margin: 5px 0;
             }
+            
             
             .cta-button {
                 padding: 8px 16px;
@@ -399,6 +402,7 @@
         .aboutus-content p {
             font-size: 1.4rem;
             color: green;
+             font-family: "Barlow Semi Condensed";
         }
         
         .image-content {
@@ -950,7 +954,7 @@
             display: inline-block;
             background: var(--secondary);
             color: var(--dark);
-            padding: 15px 30px;
+            padding:8px 10px;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
@@ -1245,7 +1249,7 @@
 </head>
 <body>
     <section class="address-section">
-        <p> 📞 +251 911112602 | ✉️ contact@regenerators-tech.et | </p>
+        <p> 📞 +251 911112602 | ✉️ girma.mogges@regenerators.net | </p>
     </section>
 
     <!-- Header -->
@@ -1454,11 +1458,11 @@
                 <p>Machinery idle time on commercial farms</p>
             </div>
             <div class="stat-card animate-on-scroll">
-                <h3>200-300%</h3>
+                <h3>50-80%</h3>
                 <p>Broker premiums over actual costs</p>
             </div>
             <div class="stat-card animate-on-scroll">
-                <h3>₵15-20B</h3>
+                <h3>Up to 30%</h3>
                 <p>Annual lost agricultural output</p>
             </div>
         </div>
@@ -1790,5 +1794,3 @@
     </script>
 </body>
 </html>
-
-
