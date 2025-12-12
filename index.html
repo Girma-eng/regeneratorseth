@@ -41,7 +41,7 @@
 
         /* Address Section */
         .address-section {
-            background-color: rgba(76, 200, 99, 0.5);
+            background-color: rgba(0, 100, 0, 0.8);
             color: white;
             padding: 8px;
             font-size: 0.8rem;
@@ -50,7 +50,7 @@
             top: 0;
             width: 100%;
             z-index: 1001;
-	    height: 30px;
+            height: 30px;
         }
 
         /* Header Navigation */
@@ -59,9 +59,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background-color: rgba(76, 201, 99, 0.5);
+            background-color: rgba(128, 128, 128, 0.8);
             position: fixed;
-            top: 20px;
+            top: 35px;
             width: 100%;
             z-index: 1000;
             height: 70px;
@@ -78,8 +78,8 @@
 
 	.logo img {
 	    display: block; /* Remove extra space below the image */
-	    width: 80px; /* Adjust the width to fit your needs */
-	    height: 70px; /* Adjust the height to fit your needs */
+	    width: 60px; /* Adjust the width to fit your needs */
+	    height: 60px; /* Adjust the height to fit your needs */
 	}
 /* Mobile Styles */
         @media (max-width: 768px) {
@@ -228,13 +228,13 @@
         .styled-text {
             background-color: black;
             color: white;
-            padding: 5px 10px;
+            padding: 5px 5px;
             text-align: center;
             border-top: 3px solid red;
             border-bottom: 3px solid red;
-            margin: 10px 0;
+            margin: 8px 0;
             display: inline-block;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -243,7 +243,7 @@
         /* Content Positioning */
         .hero {
             position: absolute;
-            top: 50%;
+            top: 55%;
             left: 10%;
             transform: translateY(-50%);
             color: white;
@@ -260,6 +260,15 @@
             max-width: 95%;
             line-height: 1.1;
             font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+           .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
 
@@ -283,14 +292,16 @@
             z-index: 2;
             width: 50%;
             text-align: left;
+              font-family: "Barlow Semi Condensed", sans-serif;
         }
 
         .slide-content h2 {
-            font-size: 1.5rem;
-            line-height: 2rem;
+            font-size: 1.3rem;
+            line-height: 1.6rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+              font-family: "Barlow Semi Condensed", sans-serif;
         }
 
         .highlight {
@@ -373,7 +384,7 @@
         }
             
             .styled-text {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
         }
 
@@ -405,9 +416,11 @@
         }
             
             .styled-text {
-                font-size: 1.1rem;
+                font-size: 1.0rem;
                 padding: 3px 8px;
             }
+        
+            
             
             .cta-button {
                 padding: 10px 20px;
@@ -431,15 +444,15 @@
             }
             
             .slide-content h2 {
-            font-size: 1.1rem;
-            line-height: 1.6rem;
+            font-size: 0.9rem;
+            line-height: 1.4rem;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-weight: 500;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
             
             .styled-text {
-                font-size: 1rem;
+                font-size: 0.9rem;
                 border-width: 2px;
                 margin: 5px 0;
             }
@@ -517,7 +530,7 @@
     .highlight-text {
         color: #2d6a4f !important;
         font-weight: 400;
-        font-size: 1.2rem !important;
+        font-size: 1.3rem !important;
          font-family: "Barlow Semi Condensed";
 	
     }
@@ -539,12 +552,12 @@
         .welcome-message p {
             font-size: 0.9rem;
             padding: 0 15px;
-            line-height:1.4rem;
+            line-height:1.6rem;
         }
         
         .highlight-text {
-            font-size: 0.9rem !important;
-            line-height: 1.5rem;
+            font-size: 1.2rem !important;
+            line-height: 1.7rem;
         }
     }
 
@@ -1057,7 +1070,7 @@
 
     .column-3 {
       width: 10%;
-      background-image: url('image_file/tractor_3.jpg');
+      background-image: url('image_file/seed_fert.jpg');
     }
 
     .column-4 {
@@ -1098,7 +1111,7 @@
     .column-2 p,
     .column-3 p {
      
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
     }
 
@@ -1112,7 +1125,7 @@
 
     .detail-text {
       display: none;
-      margin-top: 10px;
+      margin-top: 5px;
     }
 
     .column.active .detail-text {
@@ -1158,7 +1171,7 @@
       .column-3 h2 {
         writing-mode: horizontal-tb !important;
         transform: none !important;
-        font-size: 1.2rem;
+        font-size: 1.0rem;
       font-weight: 600;
       transition: all 0.3s ease;
       margin-bottom: 20px;
@@ -1660,7 +1673,9 @@
 
 
     
-
+  <section class="address-section">
+        <p> 📞 +251 911112602 | ✉️ girma.mogges@regenerators.net | </p>
+    </section>
     <!-- Header -->
     <header>
         <div class="logo">
@@ -2580,4 +2595,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
