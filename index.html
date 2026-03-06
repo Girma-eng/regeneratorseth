@@ -59,9 +59,9 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 5%;
-            background-color: rgba(128, 128, 128, 0.8);
+            background-color: white;
             position: fixed;
-            top: 35px;
+            top: 0px;
             width: 100%;
             z-index: 1000;
             height: 70px;
@@ -81,6 +81,16 @@
 	    width: 60px; /* Adjust the width to fit your needs */
 	    height: 60px; /* Adjust the height to fit your needs */
 	}
+       .logo-2 {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+
+        .logo-2 img {
+            width: 300px;
+            height: auto;
+        }
 /* Mobile Styles */
         @media (max-width: 768px) {
             
@@ -97,7 +107,16 @@
 	    width: 40px; /* Adjust the width to fit your needs */
 	    height: 40px; /* Adjust the height to fit your needs */
 	}
+   .logo-2 {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
 
+        .logo-2-img {
+            width: 120px;
+            height: auto;
+        }
            
         }
 
@@ -111,7 +130,7 @@
         }
 
         .nav-links a {
-            color: #FFA500 !important;
+            color: green;
             font-weight: bold;
             font-size: 18px;
             white-space: nowrap;
@@ -194,13 +213,13 @@
   /* Base Styles */
   .slider {
             position: relative;
-            height: 70vh;
+            height: 90vh;
             overflow: hidden;
             width: 100%;
         }
 
         .carousel-item {
-            height: 70vh;
+            height: 90vh;
             position: relative;
         }
 
@@ -243,7 +262,7 @@
         /* Content Positioning */
         .hero {
             position: absolute;
-            top: 55%;
+            top: 35%;
             left: 10%;
             transform: translateY(-50%);
             color: white;
@@ -351,14 +370,14 @@
         /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .hero {
-            top: 60%;
+            top: 25%;
             left: 10%;
             z-index: 3;
             width: 80%;
            
         }
             .hero h1 {
-                font-size: 3rem;
+                font-size: 1.6rem;
             }
             
             .slide-content h2 {
@@ -371,9 +390,7 @@
         }
 
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
+       
             
             .slide-content h2 {
             font-size: 1.4rem;
@@ -391,12 +408,10 @@
         @media (max-width: 768px) {
             .slider,
             .carousel-item {
-                height: 60vh;
+                height: 70vh;
             }
             
-            .hero h1 {
-                font-size: 3rem;
-            }
+          
             .slide-content {
             position: absolute;
             top: 70%;
@@ -428,47 +443,7 @@
             }
         }
 
-        @media (max-width: 576px) {
-            .slider,
-            .carousel-item {
-                height: 50vh;
-            }
-            
-            .hero h1 {
-                font-size: 2.50rem;
-                margin-bottom: 15px;
-            }
-            .hero h2 {
-                font-size: 1.4rem;
-                margin-bottom: 15px;
-            }
-            
-            .slide-content h2 {
-            font-size: 0.9rem;
-            line-height: 1.4rem;
-            margin-bottom: 20px;
-            font-weight: 500;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-        }
-            
-            .styled-text {
-                font-size: 0.9rem;
-                border-width: 2px;
-                margin: 5px 0;
-            }
-            
-            .cta-button {
-                padding: 8px 16px;
-                font-size: 0.8rem;
-                margin-top: 15px;
-            }
-            
-            .carousel-control-prev-icon,
-            .carousel-control-next-icon {
-                width: 2rem;
-                height: 2rem;
-            }
-        }
+    
 
         @media (max-height: 600px) {
             .slider,
@@ -592,7 +567,7 @@
             text-align: center;
             font-size: 2.5rem;
             color: #2c5f2d;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
@@ -655,9 +630,9 @@
             }
             .section-title {
             
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 color: #2c5f2d;
-                letter-spacing: 1px;
+                letter-spacing: 0.9px;
                 }
 
         }
@@ -1045,7 +1020,7 @@
 
     }
     .column.active {
-            width: 50% !important;
+            width: 50%;
         }
     .column-content {
         display: flex;
@@ -1126,6 +1101,9 @@
     .detail-text {
       display: none;
       margin-top: 5px;
+       background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  padding: 16px;
     }
 
     .column.active .detail-text {
@@ -1669,24 +1647,20 @@
 
   
 <body>
+  
 
-
-
-    
-  <section class="address-section">
-        <p> 📞 +251 911112602 | ✉️ girma.mogges@regenerators.net | </p>
-    </section>
     <!-- Header -->
     <header>
-        <div class="logo">
-            <img src="image_file/logo_regenerators_leaf_1.jpg" alt="Logo">
+        <div class="logo-2">
+            <img src="image_file/logo_full_trans.png" alt="Regenerators Ethiopia Logo" />
         </div>
 
         <!-- Desktop Navigation -->
         <nav class="nav-links">
             <a href="index.html">Home</a>
             <a href="about_us.html">About Us</a>
-            <a href="digital_platform.html">Products</a>
+              <a href="digital_platform.html">Products</a>
+            <a href="services.html">Services</a>
 	        <a href="contact.html">Contact us</a>
         </nav>
 
@@ -1699,24 +1673,15 @@
         <div id="mobile-menu">
             <a href="index.html">Home</a>
             <a href="about_us.html">About Us</a>
-            <a href="digital_platform.html">Products</a>
+             <a href="digital_platform.html">Products</a>
+            <a href="services.html">Services</a>
 	    <a href="contact.html">Contact us</a>
         </div>
     </header>
 
 
- 
-
-
-
-
-
 <!--===// Slider
 	=========================================================-->
-
-
-
-   
     <div class="slider">
           <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
 
@@ -1736,8 +1701,10 @@
 
                     <div class="hero">
 			            <h1>Regenerators Tech Ethiopia</h1>
-                         <h2>Empowering Ethiopian Farmers With <span class="highlight"> Sustainable Solutions</span></h2>
-                        
+                        <h2>Integrated Agricultural Technology Solutions</h2>
+               <!--          
+                        <h2>Empowering Ethiopian Farmers With <span class="highlight"> Sustainable Solutions</span></h2>
+                       -->  
                     </div>
                 </div>
 
@@ -1776,13 +1743,13 @@
                         <h2></h2>
                     </div>
                     <div class="slide-content">
-			<p class="styled-text">Advisory</p>
-                         <h2>Guiding farmers towards sustainable agricultural practices, ensuring long-term <span class="highlight">success and environmental preservation.</span></h2>
-                        
+		 <p class="styled-text">Consulting & Training</p>
+        <h2>Empowering farmers with expert knowledge and skills for sustainable <span class="highlight">agricultural practices and long-term success</span></h2>             
                         <a href="service.html#mechanization" class="cta-button">Learn More</a>
                     </div>
                 </div>
 		<!-- Slide 5 -->
+         <!--
                 <div class="carousel-item">
                     <img src="image_file/seed_fert.jpg" class="d-block w-100" alt="Slider Image 2">
                     <div class="secondary-title">
@@ -1795,6 +1762,7 @@
                         <a href="service.html#mechanization" class="cta-button">Learn More</a>
                     </div>
                 </div>
+                -->
             </div>
         </div>
     </div>
@@ -1809,18 +1777,10 @@
         <div class="decorative-line"></div>
         <p class="highlight-text">
         
-                At Regenerators Tech Ethiopia, we are pioneering a new era for Ethiopian agriculture by directly tackling its most 
-                critical constraint: access to mechanization. We drive innovation through a unique, scalable approach: integrating 
-                franchised mechanization services with integrated digital solutions to transform the entire agricultural value chain. 
-                We equip farmers, from smallholders to commercial producers, with advanced technologies and digital platforms that boost efficiency, 
-                sustainability, and profitability. Our mission is to bridge systemic gaps by providing franchised service networks, digital tools for 
-                transparent market access, and pathways to financial inclusion, creating a more connected and resilient farming ecosystem. 
-                We specialize in customized solutions that address Ethiopia's unique challenges while promoting sustainable growth and food security.
-
+               Regenerators Tech Ethiopia expands access to agricultural mechanization by combining franchised machinery services with digital AgTech solutions. 
+               We help farmers boost productivity, sustainability, and profitability while building a connected and resilient farming ecosystem.
            </p>
             <p class="highlight-text">
-             Join us in shaping the future. Discover how our integrated AgTech suite and franchise model—combining practical machinery services, 
-             smart digital platforms, and deep agronomic expertise—is cultivating success and unlocking prosperity in fields across the nation.
                 </p>
   
           
@@ -1887,7 +1847,7 @@
           <h2>Integrated Solutions</h2>
           <div class="detail-text">
            
-             <p>We provide a comprehensive, end-to-end approach to modernizing agriculture. Our solution integrates sustainable mechanization services with
+             <p >We provide a comprehensive, end-to-end approach to modernizing agriculture. Our solution integrates sustainable mechanization services with
                 integrated digital platforms and a seamless input distribution network. We enable farmers to plan, track, and 
                 manage all operations efficiently through smart platforms like L2MFarm, access digital payments and credit via
               
@@ -2106,8 +2066,9 @@ By leveraging the research capabilities of Hawassa University and the practical 
                 <div class="cta-links">
                     <h3>Useful Links</h3>
                     <ul>
-                        <li><a href="digital_platform.html">Products</a></li>
-                        <li><a href="products.html">Product Catalog</a></li>
+                         <a href="digital_platform.html">Products</a>
+                        <li><a href="digital_platform.html">Services</a></li>
+                        
                         <li><a href="app.html">Download Our App</a></li>
                         <li><a href="faq.html">FAQs</a></li>
                     </ul>
@@ -2555,13 +2516,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (isMobile) {
       col.style.height = '100px'; // reset height on mobile
     } else {
-      col.style.width = '10%'; // reset width on desktop
+      col.style.width = '8%'; // reset width on desktop
     }
   });
 
   if (defaultContent) defaultContent.style.display = 'none';
   column4.innerHTML = '';
-  column4.style.width = isMobile ? '100%' : '50%';
+  column4.style.width = isMobile ? '100%' : '30%';
 
   const clicked = columns[columnNumber - 1];
   clicked.classList.add('active');
@@ -2569,7 +2530,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (isMobile) {
     clicked.style.height = '500px'; // expanded height
   } else {
-    clicked.style.width = '40%'; // expanded width
+    clicked.style.width = '60%'; // expanded width
   }
 
   const images = {
