@@ -1,0 +1,1767 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Farm Hub - Agricultural Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+
+
+
+
+  /* Global Styles */
+  :root {
+            --primary: #2e7d32;
+            --primary-dark: #1b5e20;
+            --secondary: #ffab00;
+            --light: #f5f5f5;
+            --dark: #333;
+            --gray: #757575;
+        }
+        
+        body {
+            font-family: "Barlow Semi Condensed";
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Address Section */
+        .address-section {
+            background-color: rgba(0, 100, 0, 0.8);
+            color: white;
+            padding: 8px;
+            font-size: 0.8rem;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+	    height: 30px;
+        }
+
+        /* Header Navigation */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            position: fixed;
+            top: 30px;
+            width: 100%;
+            z-index: 1000;
+            height: 60px;
+        }
+
+        
+      .logo {
+	    display: inline-block;
+	    background-color: white; /* White background */
+	    border-radius: 60%; /* Circular shape */
+	    padding: 15px; /* Space around the logo image */
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+	}
+
+	.logo img {
+	    display: block; /* Remove extra space below the image */
+	    width: 80px; /* Adjust the width to fit your needs */
+	    height: 70px; /* Adjust the height to fit your needs */
+	}
+          .logo-2 {
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+
+        .logo-2 img {
+            width: 300px;
+            height: auto;
+        }
+/* Mobile Styles */
+        @media (max-width: 768px) {
+            
+         .logo {
+	    display: inline-block;
+	    background-color: white; /* White background */
+	    border-radius: 60%; /* Circular shape */
+	    padding: 8px; /* Space around the logo image */
+	    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+	}
+
+	.logo img {
+	    display: block; /* Remove extra space below the image */
+	    width: 40px; /* Adjust the width to fit your needs */
+	    height: 40px; /* Adjust the height to fit your needs */
+	}
+
+           
+        }
+
+
+
+
+/* Desktop Navigation */
+          .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: green;
+            font-weight: bold;
+            font-size: 18px;
+            white-space: nowrap;
+        }
+
+
+/* Mobile Navigation */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #FFA500;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        #mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(0, 100, 0, 0.95);
+            width: 200px;
+            padding: 15px;
+            z-index: 1001;
+        }
+
+        #mobile-menu a {
+            color: white !important;
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+
+            #mobile-menu.active {
+                display: block;
+            }
+
+            header {
+                top: 30px;
+                height: 50px;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .slider {
+                margin-top: 80px;
+                height: calc(100vh - 80px);
+            }
+        }
+
+
+
+
+  /*<!--===// CSS:Slider
+	=========================================================-->*/
+  /* Base Styles */
+  .slider {
+            position: relative;
+            height: 70vh;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .carousel-item {
+            height: 70vh;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .carousel-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Text Styles */
+        .styled-text {
+            background-color: black;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-top: 3px solid red;
+            border-bottom: 3px solid red;
+            margin: 10px 0;
+            display: inline-block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Content Positioning */
+        .hero {
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            transform: translateY(-50%);
+            color: white;
+            z-index: 3;
+            width: 50%;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            pointer-events: auto;
+        }
+
+        .hero h1 {
+            font-size: 3.0rem;
+            margin-bottom: 20px;
+            font-family: "Barlow Semi Condensed", sans-serif;
+            max-width: 95%;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .secondary-title {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            color: white;
+            text-align: left;
+            width: 75%;
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 75%;
+            left: 75%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 40%;
+            text-align: left;
+        }
+
+        .slide-content h2 {
+            font-size: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .highlight {
+            color: #FFD700;
+        }
+
+        /* Button Styles */
+        .cta-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            position: relative;
+            z-index: 4;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #3e8e41;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Carousel Controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 15%;
+            opacity: 1;
+            transition: opacity 0.3s;
+            z-index: 5;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            background-size: 60%;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+            top: 60%;
+            left: 10%;
+            z-index: 3;
+            width: 80%;
+           
+        }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.8rem;
+            }
+            
+            .styled-text {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider,
+            .carousel-item {
+                height: 60vh;
+            }
+            
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .slide-content {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            z-index: 2;
+            width: 80%;
+            text-align: left;
+        }
+            .slide-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .styled-text {
+                font-size: 1.1rem;
+                padding: 3px 8px;
+            }
+            
+            .cta-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .slider,
+            .carousel-item {
+                height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 2.50rem;
+                margin-bottom: 15px;
+            }
+            .hero h2 {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            
+            .slide-content h2 {
+                font-size: 1.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .styled-text {
+                font-size: 1rem;
+                border-width: 2px;
+                margin: 5px 0;
+            }
+            
+            .cta-button {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                margin-top: 15px;
+            }
+            
+            .carousel-control-prev-icon,
+            .carousel-control-next-icon {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+
+        @media (max-height: 600px) {
+            .slider,
+            .carousel-item {
+                height: 80vh;
+            }
+        }
+	   
+        /* Services Sections */
+        .services-section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 15px auto;
+        }
+        
+        /* Service Categories */
+        .service-category {
+            margin-bottom: 80px;
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .category-title {
+            flex: 1;
+        }
+        
+        .category-title h3 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+        
+        .category-title p {
+            color: var(--gray);
+            max-width: 800px;
+        }
+        
+        /* Service Cards Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .service-price {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .service-btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .service-btn:hover {
+            background: var(--primary-dark);
+        }
+        
+        .more-btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+        
+        .more-btn:hover {
+            background: #ffc107;
+        }
+        
+        /* Service Details */
+        .service-details {
+            display: none;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .service-details ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* App Cards */
+        .app-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+        
+        .app-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            transition: all 0.3s ease;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-icon {
+            width: 120px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            flex-shrink: 0;
+        }
+        
+        .app-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        
+        .app-content {
+            padding: 25px;
+            flex: 1;
+        }
+        
+        .app-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .app-content p {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .app-badges {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .app-badge {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            color: var(--dark);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin-top: 50px;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .services-hero p {
+                font-size: 1rem;
+            }
+            
+            .services-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .app-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-card {
+                flex-direction: column;
+            }
+            
+            .app-icon {
+                width: 100%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<!--===// 
+	==========================================================================================================-->
+
+<!--===// Body
+	==========================================================================================================-->
+
+
+
+  
+<body>
+
+ <!-- 
+   <section class="address-section">
+        <p> 📞 +251 911112602 | ✉️ girma.moges@farmlab-ethiopia.com | </p>
+    </section>
+ -->
+    
+
+    <!-- Header -->
+    <header>
+        <div class="logo-2">
+            <img src="image_file/logo_full_trans.png" alt="Regenerators Ethiopia Logo" />
+        </div>
+
+        <!-- Desktop Navigation -->
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+              <a href="digital_platform.html">Products</a>
+            <a href="services.html">Services</a>
+	        <a href="contact.html">Contact us</a>
+        </nav>
+
+        <!-- Mobile Navigation -->
+        <button class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about_us.html">About Us</a>
+             <a href="digital_platform.html">Products</a>
+            <a href="services.html">Services</a>
+	    <a href="contact.html">Contact us</a>
+        </div>
+    </header>
+
+
+<!--===// Slider
+	=========================================================-->
+    <div class="slider">
+          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000" data-bs-pause="false">
+
+            <div class="carousel-inner">
+                <!-- Slide 1 -->
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+		    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+		    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+		    <span class="visually-hidden">Next</span>
+		</button>
+
+                <div class="carousel-item active">
+                    <img src="image_file/wheat_field_2.jpg" class="d-block w-100" alt="Slider Image 1">
+
+                    <div class="hero">
+			            <h1>Regenerators Tech Ethiopia</h1>
+                        <h2>Integrated Agricultural Technology Solutions</h2>
+               <!--          
+                        <h2>Empowering Ethiopian Farmers With <span class="highlight"> Sustainable Solutions</span></h2>
+                       -->  
+                    </div>
+                </div>
+
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <img src="image_file/super_seeder_1.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+ 			<p class="styled-text">Mechanization Services</p>
+                        <h2>Revolutionizing farming with advanced mechanization services that save time, <span class="highlight">increase efficiency, and boost crop yields</span></h2>
+                       
+                        <a href="service.html#mechanization-service-category" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <img src="image_file/digital_soln.jpg" class="d-block w-100" alt="Slider Image 3">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+			<p class="styled-text">Digital Solutions</p>
+                        <h2>Transforming agriculture with our digital platform, connecting farmers to vital resources <span class="highlight">and services for smarter farming</span></h2>
+                        
+                        <a href="service.html#digital-solutions" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+		<!-- Slide 4 -->
+                <div class="carousel-item">
+                    <img src="image_file/advisory_1.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+		 <p class="styled-text">Consulting & Training</p>
+        <h2>Empowering farmers with expert knowledge and skills for sustainable <span class="highlight">agricultural practices and long-term success</span></h2>             
+                        <a href="service.html#mechanization" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+		<!-- Slide 5 -->
+         <!--
+                <div class="carousel-item">
+                    <img src="image_file/seed_fert.jpg" class="d-block w-100" alt="Slider Image 2">
+                    <div class="secondary-title">
+                        <h2></h2>
+                    </div>
+                    <div class="slide-content">
+		<p class="styled-text">Quality Inputs</p>
+                         <h2>Supplying high-quality seeds, fertilizers, and farming  <span class="highlight">inputs to drive growth and enhance crop production</span></h2>
+                        
+                        <a href="service.html#mechanization" class="cta-button">Learn More</a>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </div>
+
+  <!-- Mechanization Services -->
+ <!-- Mechanization Services -->
+ <section class="services-section">
+    <div class="service-category">
+        <div class="category-header animate-on-scroll">
+            <div class="category-icon">
+                <i class="fas fa-tractor"></i>
+            </div>
+            <div class="category-title">
+                <h3>Mechanization Services</h3>
+                <p>Modern, affordable mechanization solutions to increase productivity and reduce labor intensity</p>
+            </div>
+        </div>
+        
+        <!-- Land Preparation Services -->
+        <div class="subsection-title animate-on-scroll">
+            <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">Land Preparation Services</h4>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/disk_harrow.jpg" alt="Plowing Service">
+                </div>
+                <div class="service-content">
+                    <h3>Disk Harrow</h3>
+                    <p>Secondary tillage to break up soil clods and create a fine seedbed for optimal planting conditions.</p>
+                   
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <p>The Disk Harrow is a robust secondary tillage implement designed to refine soil structure after primary plowing. It breaks clods, incorporates crop residues, and eliminates weeds, creating a fine, uniform seedbed ideal for sowing. It is compatible with 50HP tractors, it combines power and efficiency to meet the needs of Ethiopian smallholder farmers.</p>
+                  
+                        <ul>
+                            <li>Uses disc harrows with adjustable angles</li>
+                            <li>Depth: 8-15 cm depending on needs</li>
+                            <li>Creates uniform seedbed for precision planting</li>
+                            <li>Incorporates surface residues into soil</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Fields with compacted soil, first-time cultivation, or after long fallow periods</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/Rotary_tiller.jpg" alt="Harrowing Service">
+                </div>
+                <div class="service-content">
+                    <h3>Rotary Tiller</h3>
+                  
+                    <p>Secondary tillage to break up soil clods and create a fine seedbed for optimal planting conditions.</p>
+                 
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <p>The Rotary Tiller is a versatile tillage implement designed to prepare soil for planting by thoroughly mixing, aerating, and refining soil structure. It breaks hardpan, pulverizes clods, incorporates crop residues, and eliminates weeds, creating a uniform, fine-textured seedbed ideal for sowing. It is designed to be pulled by 50HP tractors, it combines power, precision, and efficiency to meet the needs of Ethiopian smallholder farmers. The unique design is ideal for seed bed preparation to improve the soil health and supplements in retaining soil moisture and increases porosity.</p>
+              
+                       
+                        <p><strong>Best for:</strong> Fields after primary tillage, preparing for all crops</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/laser_leveler_1.jpg" alt="Land Leveling Service">
+                </div>
+                <div class="service-content">
+                    <h3>Laser Land Leveler</h3>
+                    <p>Precision leveling of fields to ensure uniform water distribution and improve irrigation efficiency.</p>
+                   
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <p>Our Laser Land Leveler revolutionizes field preparation by delivering unparalleled precision in land leveling, ensuring optimal water distribution and uniform crop growth. It levels the field within a certain degree of the desired slope using a guided laser beam throughout the field. An unevenness of the soil surface has a significant impact on the germination, stand, and yield of crops.</p>
+                  
+                        <ul>
+                            <li>Laser-guided leveling for precision</li>
+                            <li>Reduces water use by up to 30%</li>
+                            <li>Improves crop uniformity and yield</li>
+                            <li>Reduces waterlogging in low spots</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Irrigated fields, rice paddies, fields with uneven topography</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/ridger.jpg" alt="Ridging Service">
+                </div>
+                <div class="service-content">
+                    <h3>Ridging</h3>
+                    <p>Creating raised beds for crops that benefit from improved drainage and soil warming.</p>
+                 
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Creates ridges 15-30 cm high</li>
+                            <li>Adjustable spacing between ridges</li>
+                            <li>Improves soil temperature for early planting</li>
+                            <li>Reduces root diseases in waterlogged soils</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Root crops, vegetables, areas with heavy rainfall</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/sub_soiler.jpg" alt="Subsoiling Service">
+                </div>
+                <div class="service-content">
+                    <h3>Subsoiling</h3>
+                    <p>Deep soil loosening without inversion to break up hardpans and improve root penetration.</p>
+                 
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Depth: 30-60 cm depending on needs</li>
+                            <li>Doesn't bring subsoil to surface</li>
+                            <li>Breaks compaction layers below plow depth</li>
+                            <li>Improves drainage and root development</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Fields with known compaction issues, heavy clay soils</p>
+                    </div>
+                </div>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="image_file/Cultivator.jpg" alt="Subsoiling Service">
+                </div>
+                <div class="service-content">
+                    <h3>Cultivator</h3>
+                    <p>Deep soil loosening without inversion to break up hardpans and improve root penetration.</p>
+                 
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Depth: 30-60 cm depending on needs</li>
+                            <li>Doesn't bring subsoil to surface</li>
+                            <li>Breaks compaction layers below plow depth</li>
+                            <li>Improves drainage and root development</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Fields with known compaction issues, heavy clay soils</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Planting Services -->
+        <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">Planting Services</h4>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                     <img src="image_file/multi_crop_planter.jpg" alt="Subsoiling Service">
+                   </div>
+                <div class="service-content">
+                    <h3>Row Planting</h3>
+                    <p>Precision planting of crops in straight rows with optimal spacing for maximum yield.</p>
+                   
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Adjustable row spacing (30-90cm)</li>
+                            <li>Precise seed placement and depth control</li>
+                            <li>Can include fertilizer placement</li>
+                            <li>Reduces seed waste compared to broadcasting</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Most field crops (maize, wheat, soybeans, etc.)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                      <img src="image_file/super_seeder_2.jpg" alt="Subsoiling Service">
+                     </div>
+                <div class="service-content">
+                    <h3>Direct Seeding</h3>
+                    <p>No-till planting that preserves soil structure while ensuring proper seed placement.</p>
+                
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Minimal soil disturbance</li>
+                            <li>Maintains soil moisture and organic matter</li>
+                            <li>Specialized no-till planters used</li>
+                            <li>Can plant into cover crops or residues</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Conservation agriculture, areas with erosion risk</p>
+                    </div>
+                </div>
+            </div>
+            
+         
+            
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                      <img src="image_file/Happy_seeder.jpg" alt="Subsoiling Service">
+                     </div>
+                <div class="service-content">
+                    <h3>Precision Planting</h3>
+                    <p>Advanced planting technology for exact seed placement and population control.</p>
+                  
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Electronic seed metering</li>
+                            <li>Variable rate capability</li>
+                            <li>Seed-by-seed spacing accuracy</li>
+                            <li>Real-time monitoring and adjustments</li>
+                        </ul>
+                        <p><strong>Best for:</strong> High-value crops, seed production fields</p>
+                    </div>
+                </div>
+            </div>
+            
+              <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                      <img src="image_file/potato_planter.jpg" alt="Subsoiling Service">
+                     </div>
+                <div class="service-content">
+                    <h3>Potato Planter</h3>
+                    <p>The Potato Planter revolutionizes potato production by delivering precise, efficient planting of potatoes in uniform rows. It creates optimal seed beds with integrated furrow systems, this versatile machine adapts to diverse soils, climates, and farm sizes. </p>
+                  
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Time-Saving & Labor-Efficient</li>
+                            <li>Automated planting and bed formation in a single pass in two rows</li>
+                            
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Crop Care Services -->
+        <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+            <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">Crop Care Services</h4>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Spraying Service">
+                </div>
+                <div class="service-content">
+                    <h3>Mechanical Spraying</h3>
+                    <p>Precision application of fertilizers and crop protection products using boom sprayers.</p>
+                   
+                    <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                    <div class="service-details">
+                        <h4>Service Details:</h4>
+                        <ul>
+                            <li>Boom widths from 6-24 meters</li>
+                            <li>Precise application rates</li>
+                            <li>Reduces chemical use through accuracy</li>
+                            <li>Can include GPS guidance for overlap prevention</li>
+                        </ul>
+                        <p><strong>Best for:</strong> Large-scale herbicide, pesticide, or foliar fertilizer applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+  
+    <!-- Consultancy & Training Services -->
+<!-- Consultancy & Training Services -->
+<div class="service-category" id="consultancy-training">
+    <div class="category-header animate-on-scroll">
+        <div class="category-icon">
+            <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="category-title">
+            <h3>Consultancy & Training Services</h3>
+            <p>Specialized expertise in agricultural machinery, post-harvest technology, precision agriculture, and farm business economics</p>
+        </div>
+    </div>
+    
+    <!-- 1. Agricultural Machinery Consultancy -->
+    <div class="subsection-title animate-on-scroll">
+        <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">1. Agricultural Machinery Consultancy</h4>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/machinery_consult_1.jpg" alt="Machinery Selection Consultation">
+            </div>
+            <div class="service-content">
+                <h3>Machinery Selection & Procurement</h3>
+                <p>Expert guidance on selecting the right machinery for your farm size, crops, and budget constraints.</p>
+               
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Needs assessment for your specific farm operations</li>
+                        <li>Comparative analysis of equipment brands and models</li>
+                        <li>Cost-benefit analysis of purchase vs rental options</li>
+                        <li>Supplier evaluation and procurement guidance</li>
+                        <li>Financing options and grant opportunities</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Equipment recommendation report with specifications and budget</p>
+                    <p><strong>Best for:</strong> Farmers expanding operations, cooperatives purchasing equipment</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/machinery_consult_2.jpg" alt="Machinery Management">
+            </div>
+            <div class="service-content">
+                <h3>Machinery Management & Maintenance</h3>
+                <p>Systems development for efficient machinery use, maintenance scheduling, and cost control.</p>
+             
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Maintenance schedule development</li>
+                        <li>Operator training program design</li>
+                        <li>Fuel and spare parts management systems</li>
+                        <li>Record-keeping for maintenance and repairs</li>
+                        <li>Downtime reduction strategies</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Complete machinery management manual + training materials</p>
+                    <p><strong>Best for:</strong> Medium to large farms, equipment service providers</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/machinery_consult_3.jpg" alt="Mechanization Training">
+            </div>
+            <div class="service-content">
+                <h3>Mechanization Operation Training</h3>
+                <p>Hands-on training programs for tractor operators and equipment maintenance technicians.</p>
+              
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Training Program:</h4>
+                    <ul>
+                        <li>Basic tractor operation and safety (3 days)</li>
+                        <li>Implement attachment and calibration (2 days)</li>
+                        <li>Preventive maintenance and minor repairs (3 days)</li>
+                        <li>Troubleshooting common problems (2 days)</li>
+                        <li>Fuel efficiency and cost management (1 day)</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 5-11 days | <strong>Format:</strong> 70% practical, 30% theory</p>
+                    <p><strong>Certification:</strong> Certificate of Completion provided</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2. Post-Harvest Technology Consultancy -->
+    <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+        <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">2. Post-Harvest Technology Consultancy</h4>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/postharvest_consult_1.jpg" alt="Storage Solutions">
+            </div>
+            <div class="service-content">
+                <h3>Storage Facility Design & Management</h3>
+                <p>Consultation on designing and managing efficient storage facilities to minimize post-harvest losses.</p>
+             
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Site assessment and storage needs analysis</li>
+                        <li>Design recommendations for traditional and modern storage</li>
+                        <li>Ventilation, temperature, and humidity control systems</li>
+                        <li>Pest management in storage facilities</li>
+                        <li>Cost analysis of different storage options</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Storage facility design plans + management protocols</p>
+                    <p><strong>Best for:</strong> Grain producers, cooperatives, agro-processors</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/postharvest_consult_2.jpg" alt="Processing Technology">
+            </div>
+            <div class="service-content">
+                <h3>Value Addition & Processing Technology</h3>
+                <p>Guidance on selecting and implementing appropriate processing technologies for value addition.</p>
+             
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Market analysis for processed products</li>
+                        <li>Technology selection for cleaning, sorting, grading</li>
+                        <li>Milling, packaging, and preservation technologies</li>
+                        <li>Quality control systems for processed products</li>
+                        <li>Business planning for agro-processing ventures</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Processing technology roadmap + business case analysis</p>
+                    <p><strong>Best for:</strong> Farmers adding value, startup agro-processors</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/postharvest_training.jpg" alt="Post-Harvest Training">
+            </div>
+            <div class="service-content">
+                <h3>Post-Harvest Management Training</h3>
+                <p>Comprehensive training on reducing losses and maintaining quality from harvest to market.</p>
+               
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Training Program:</h4>
+                    <ul>
+                        <li>Proper harvesting techniques and timing (1 day)</li>
+                        <li>Cleaning, sorting, and grading methods (1 day)</li>
+                        <li>Storage pest identification and control (1 day)</li>
+                        <li>Moisture management and drying techniques (1 day)</li>
+                        <li>Quality standards and market requirements (1 day)</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 3-5 days | <strong>Focus:</strong> Practical techniques for Ethiopian conditions</p>
+                    <p><strong>Best for:</strong> All farmers, warehouse managers, extension workers</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3. Precision Agriculture Consultancy -->
+    <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+        <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">3. Precision Agriculture Consultancy</h4>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/precision_agri_1.jpg" alt="Precision Farming">
+            </div>
+            <div class="service-content">
+                <h3>Precision Farming System Design</h3>
+                <p>Developing tailored precision agriculture systems suitable for Ethiopian farming conditions.</p>
+              
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Farm mapping and soil variability assessment</li>
+                        <li>GPS and GIS technology integration planning</li>
+                        <li>Variable rate technology (VRT) implementation strategy</li>
+                        <li>Sensor selection for soil moisture, nutrients, crop health</li>
+                        <li>Data management and analysis systems</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Precision agriculture implementation plan + technology roadmap</p>
+                    <p><strong>Best for:</strong> Commercial farms, research stations, progressive farmers</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/precision_agri_2.jpg" alt="Soil & Crop Sensing">
+            </div>
+            <div class="service-content">
+                <h3>Soil & Crop Monitoring Solutions</h3>
+                <p>Implementing cost-effective monitoring systems for optimized input application.</p>
+             
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Soil sampling strategy and grid design</li>
+                        <li>Sensor selection for Ethiopian soil types</li>
+                        <li>Data interpretation for fertilizer recommendations</li>
+                        <li>Irrigation scheduling based on soil moisture data</li>
+                        <li>Yield monitoring and mapping systems</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Soil fertility maps + precision input application plans</p>
+                    <p><strong>Best for:</strong> Farms with input optimization needs, irrigation projects</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/precision_training.jpg" alt="Precision Agriculture Training">
+            </div>
+            <div class="service-content">
+                <h3>Precision Agriculture Training</h3>
+                <p>Practical training on precision farming technologies and data-driven decision making.</p>
+              
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Training Program:</h4>
+                    <ul>
+                        <li>Introduction to precision agriculture concepts (1 day)</li>
+                        <li>GPS technology and field mapping (2 days)</li>
+                        <li>Soil sampling and variable rate application (2 days)</li>
+                        <li>Yield monitoring and data analysis (1 day)</li>
+                        <li>Economic benefits and ROI calculation (1 day)</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 5-7 days | <strong>Level:</strong> Intermediate to advanced</p>
+                    <p><strong>Prerequisites:</strong> Basic computer skills, farming experience</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 4. Business Plan & Agricultural Economics -->
+    <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+        <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">4. Business Plan & Agricultural Economics</h4>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/business_plan_1.jpg" alt="Farm Business Planning">
+            </div>
+            <div class="service-content">
+                <h3>Farm Business Plan Development</h3>
+                <p>Comprehensive business planning for agricultural enterprises and farmer cooperatives.</p>
+                
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Market research and opportunity analysis</li>
+                        <li>Enterprise selection and diversification planning</li>
+                        <li>Financial projections (3-5 years)</li>
+                        <li>Risk assessment and mitigation strategies</li>
+                        <li>Funding proposal development for banks/grants</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Complete business plan document + financial model</p>
+                    <p><strong>Best for:</strong> New agricultural ventures, expanding farms, cooperatives</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/agri_economics_1.jpg" alt="Economic Analysis">
+            </div>
+            <div class="service-content">
+                <h3>Farm Economic Analysis</h3>
+                <p>Detailed economic analysis of farm operations for improved profitability and efficiency.</p>
+               
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Consultancy Details:</h4>
+                    <ul>
+                        <li>Cost of production analysis by enterprise</li>
+                        <li>Break-even analysis and profitability assessment</li>
+                        <li>Investment analysis for machinery and technology</li>
+                        <li>Price risk management strategies</li>
+                        <li>Benchmarking against industry standards</li>
+                    </ul>
+                    <p><strong>Deliverables:</strong> Economic analysis report + recommendations for improvement</p>
+                    <p><strong>Best for:</strong> Commercial farms, investors, agricultural projects</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="service-card animate-on-scroll">
+            <div class="service-img">
+                <img src="image_file/financial_training.jpg" alt="Financial Management Training">
+            </div>
+            <div class="service-content">
+                <h3>Farm Financial Management Training</h3>
+                <p>Practical training on farm record keeping, budgeting, and financial decision making.</p>
+               
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Training Program:</h4>
+                    <ul>
+                        <li>Basic farm record keeping systems (1 day)</li>
+                        <li>Budgeting and cash flow management (1 day)</li>
+                        <li>Cost analysis and pricing strategies (1 day)</li>
+                        <li>Loan management and credit access (1 day)</li>
+                        <li>Financial planning for farm households (1 day)</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 3-5 days | <strong>Focus:</strong> Practical tools for Ethiopian farmers</p>
+                    <p><strong>Best for:</strong> Farm managers, cooperative leaders, aspiring agripreneurs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Customized Packages -->
+    <div class="subsection-title animate-on-scroll" style="margin-top: 50px;">
+        <h4 style="font-size: 1.5rem; color: var(--primary); margin-bottom: 20px; border-bottom: 2px solid var(--secondary); padding-bottom: 10px; display: inline-block;">Customized Consultancy Packages</h4>
+    </div>
+    
+    <div class="services-grid">
+        <div class="service-card animate-on-scroll">
+            <div class="service-content">
+                <h3>Integrated Farm Development Package</h3>
+                <p>Comprehensive consultancy combining all four areas for complete farm transformation.</p>
+                
+                <a href="#" class="more-btn" onclick="toggleDetails(this)">More Details</a>
+                <div class="service-details">
+                    <h4>Package Includes:</h4>
+                    <ul>
+                        <li>Farm assessment and strategic planning</li>
+                        <li>Machinery selection and management system</li>
+                        <li>Post-harvest infrastructure planning</li>
+                        <li>Precision agriculture technology roadmap</li>
+                        <li>Complete business and financial plan</li>
+                        <li>Training program for farm staff</li>
+                    </ul>
+                    <p><strong>Duration:</strong> 2-3 month engagement</p>
+                    <p><strong>Best for:</strong> New farm developments, major expansion projects</p>
+                </div>
+                <a href="contact.html" class="service-btn" style="margin-top: 15px; display: block; text-align: center;">Request Custom Package</a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section" id="contact">
+    <h2 class="animate-on-scroll">Ready to Transform Your Farming?</h2>
+    <p class="animate-on-scroll">Get in touch with us to book any of our services or to learn more about how we can help your farm</p>
+    <a href="contact.html" class="cta-button animate-on-scroll">Contact Us Now</a>
+</section>
+
+
+  <!--===// JavaScript
+	=====================================================================================================================================================================================-->
+
+ <!--===// Menu toggle
+	===================================================================================-->
+
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#mobile-menu') && !e.target.closest('.hamburger')) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on scroll
+        window.addEventListener('scroll', () => {
+            mobileMenu.classList.remove('active');
+        });
+    </script>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+<script>
+    // Animation on scroll functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+</script>
+
+
+
+
+
+
+
+<script>
+    // Animation on scroll functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    });
+    
+    // Toggle service details
+    function toggleDetails(button) {
+        event.preventDefault();
+        const details = button.nextElementSibling;
+        if (details.style.display === 'block') {
+            details.style.display = 'none';
+            button.textContent = 'More Details';
+        } else {
+            details.style.display = 'block';
+            button.textContent = 'Hide Details';
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JavaScript for Toggle Description -->
+    <script>
+        function toggleDescription(item) {
+            item.classList.toggle('active');
+        }
+    </script>
+<script>
+// Update mobile menu toggle
+document.querySelector('.hamburger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('nav').classList.toggle('active');
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', function(event) {
+    const header = document.querySelector('header');
+    if (!header.contains(event.target)) {
+        document.querySelector('.hamburger').classList.remove('active');
+        document.querySelector('nav').classList.remove('active');
+    }
+});
+
+// Close menu on any link click
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.querySelector('.hamburger').classList.remove('active');
+        document.querySelector('nav').classList.remove('active');
+    });
+});
+
+</script>
+
+
+
+
+
+
+<!--===// lastmile
+	===================================================================================-->
+
+<script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.keyissues .button-list button');
+    const tabContents = document.querySelectorAll('.keyissues .tab-content');
+
+    // Function to switch tabs
+    function switchTab(clickedTab) {
+        // Remove active classes from all buttons and content
+        tabs.forEach(tab => tab.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active-tab'));
+
+        // Add active classes to the clicked button and corresponding content
+        clickedTab.classList.add('active');
+        const targetTabId = clickedTab.getAttribute('name');
+        const targetTabContent = document.getElementById(targetTabId);
+
+        if (targetTabContent) {
+            targetTabContent.classList.add('active-tab');
+        }
+    }
+
+    // Add click event listeners to buttons
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => switchTab(tab));
+    });
+
+    // Activate the first tab by default
+    if (tabs.length > 0) {
+        switchTab(tabs[0]);
+    }
+});
+</script>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
